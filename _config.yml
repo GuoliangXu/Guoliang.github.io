@@ -12,7 +12,7 @@ site_theme               : "modern" # Currently available options are "default",
 title                    : "Guoliang Xu"
 title_separator          : "-"
 name                     : &name "Guoliang Xu"
-description              : &description "personal description"
+description              : &description "Ph.D. candidate in Applied Statistics at Columbia University, specializing in statistical data analysis and machine learning."
 url                      : https://GuoliangXu.github.io # the base hostname & protocol for your site e.g. "https://[your GitHub username].github.io"
 baseurl                  : "" # the subpath of your site, e.g. "/blog"
 repository               : "GuoliangXu/Guoliang.github.io"
@@ -30,9 +30,9 @@ author:
   #pronouns         : # example: "he/him/his"  
   bio              : "Ph.D. candidate in Applied Statistics at Columbia University, specializing in statistical data analysis and machine learning."
   location         : "New York City"
-  #employer         : "Columbia University"
-  #uri              : # URL
-  #email            : "none@example.org" 
+  employer         : "Columbia University"
+  uri              : "https://GuoliangXu.github.io"
+  email            : "gx2150@tc.columbia.edu" 
 
   # Academic websites
   academia         : # URL
@@ -50,7 +50,7 @@ author:
   bitbucket        : # Username - Update with your username on the site
   codepen          : # Username
   dribbble         : # Username
-  github           : #"academicpages"
+  github           : "GuoliangXu"
   kaggle           : # Username  
   stackoverflow    : # User number or user number and name (i.e., use "1" or "1/jeff-atwood")    
 
