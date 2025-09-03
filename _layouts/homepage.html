@@ -297,6 +297,10 @@ layout: default
   color: #059669;
 }
 
+.portfolio-visual .visual-icon {
+  color: #8b5cf6;
+}
+
 .cv-visual .visual-icon {
   color: #dc2626;
 }
@@ -377,7 +381,8 @@ a {
   transition: var(--global-transition);
 }
 
-a:hover {
+/* General link hover - but exclude styled buttons */
+a:hover:not(.download-links a):not(.btn) {
   transform: translateY(-1px);
 }
 
@@ -387,7 +392,7 @@ a:hover {
   padding: 0.4em 0.8em;
   margin: 0.2em;
   background-color: var(--global-primary-color);
-  color: white;
+  color: white !important;
   text-decoration: none;
   border-radius: var(--global-border-radius-sm);
   font-size: 0.85em;
@@ -396,9 +401,10 @@ a:hover {
 }
 
 .download-links a:hover {
-  background-color: var(--global-link-color-hover, #1d4ed8);
+  background-color: #1d4ed8;
   transform: translateY(-2px);
   box-shadow: var(--global-shadow-color) 0px 4px 8px 0px;
+  color: white !important;
 }
 </style>
 
@@ -542,6 +548,24 @@ a:hover {
           </section>
           <div class="section-visual teaching-visual">
             <div class="visual-icon">🏫</div>
+          </div>
+        </div>
+        {% endif %}
+
+        <!-- Portfolio Section -->
+        {% if site.portfolio.size > 0 %}
+        <div class="section-wrapper left-layout">
+          <section id="portfolio" class="page__content section-content">
+            <header class="page__header">
+              <h1 class="page__title">Portfolio</h1>
+            </header>
+            
+            {% for post in site.portfolio reversed %}
+              {% include archive-single.html %}
+            {% endfor %}
+          </section>
+          <div class="section-visual portfolio-visual">
+            <div class="visual-icon">💼</div>
           </div>
         </div>
         {% endif %}
