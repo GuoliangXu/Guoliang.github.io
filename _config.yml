@@ -25,7 +25,7 @@ remote_theme: academicpages/academicpages.github.io
 #               Additional customization can be done by editing /_includes/author-profile.html
 author:
   # Biographic information
-  avatar           : "profile1.png"
+  avatar           : "profile2.png"
   name             : "Guoliang Xu"
   #pronouns         : # example: "he/him/his"  
   #bio              : "Short biography for the left-hand sidebar"
