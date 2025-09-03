@@ -28,8 +28,8 @@ author:
   avatar           : "profile2.png"
   name             : "Guoliang Xu"
   #pronouns         : # example: "he/him/his"  
-  bio              : "Ph.D. candidate in Applied Statistics at Columbia University, specializing in statistical data analysis and machine learning."
-  location         : "New York City"
+  #bio              : "Ph.D. candidate in Applied Statistics at Columbia University, specializing in statistical data analysis and machine learning."
+  #location         : "New York City"
   #employer         : "Columbia University"
   #uri              : # URL
   #email            : "none@example.org" 
