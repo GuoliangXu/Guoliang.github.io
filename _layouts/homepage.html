@@ -306,6 +306,38 @@ section[id] {
   scroll-margin-top: 80px;
 }
 
+/* Active navigation state */
+.masthead .visible-links .active a {
+  color: var(--global-primary-color) !important;
+  font-weight: 600;
+}
+
+/* Improved visual icon styling */
+.visual-icon i {
+  display: block;
+}
+
+/* Enhanced button hover effects */
+.download-links a {
+  position: relative;
+  overflow: hidden;
+}
+
+.download-links a::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+  transition: left 0.5s;
+}
+
+.download-links a:hover::before {
+  left: 100%;
+}
+
 /* Responsive design for mobile */
 @media (max-width: 1024px) {
   .content-container {
@@ -402,6 +434,70 @@ a:hover {
 }
 </style>
 
+<!-- Include homepage specific JavaScript -->
+<script>
+// Homepage fixes for section navigation and visual improvements - Vanilla JS version
+document.addEventListener('DOMContentLoaded', function() {
+  
+  // Fix smooth scrolling for anchor links - handle both relative and absolute URLs
+  const anchorLinks = document.querySelectorAll('a[href*="#"]');
+  
+  anchorLinks.forEach(function(link) {
+    const href = link.getAttribute('href');
+    // Only handle links that end with a hash fragment for this page
+    if (href && href.includes('#') && (href.startsWith('#') || href.includes(window.location.hostname))) {
+      link.addEventListener('click', function(e) {
+        e.preventDefault();
+        
+        // Extract the hash part
+        const hashIndex = href.indexOf('#');
+        const target = href.substring(hashIndex);
+        const targetElement = document.querySelector(target);
+        
+        if (targetElement) {
+          const offset = 80; // Account for fixed header
+          const targetPosition = targetElement.offsetTop - offset;
+          
+          window.scrollTo({
+            top: targetPosition,
+            behavior: 'smooth'
+          });
+        }
+      });
+    }
+  });
+  
+  // Add active state to navigation links based on scroll position
+  window.addEventListener('scroll', function() {
+    const scrollDistance = window.pageYOffset;
+    
+    // Check each section
+    const sections = document.querySelectorAll('section[id]');
+    sections.forEach(function(section) {
+      const sectionTop = section.offsetTop - 100;
+      const sectionId = section.getAttribute('id');
+      
+      const navLinks = document.querySelectorAll('.masthead .visible-links a[href*="#' + sectionId + '"]');
+      
+      navLinks.forEach(function(navLink) {
+        const navItem = navLink.parentElement;
+        
+        if (scrollDistance >= sectionTop) {
+          // Remove active from all nav items
+          document.querySelectorAll('.masthead .visible-links li').forEach(function(item) {
+            item.classList.remove('active');
+          });
+          // Add active to current nav item
+          navItem.classList.add('active');
+        }
+      });
+    });
+  });
+  
+});
+</script>
+</script>
+
 <div id="main" role="main">
   {% include sidebar.html %}
 
@@ -426,7 +522,7 @@ a:hover {
             </div>
           </section>
           <div class="section-visual about-visual">
-            <div class="visual-icon">👨‍🎓</div>
+            <div class="visual-icon"><i class="fas fa-user-graduate"></i></div>
           </div>
         </div>
 
@@ -467,7 +563,7 @@ a:hover {
             </div>
           </section>
           <div class="section-visual education-visual">
-            <div class="visual-icon">🎓</div>
+            <div class="visual-icon"><i class="fas fa-graduation-cap"></i></div>
           </div>
         </div>
 
@@ -524,7 +620,7 @@ a:hover {
             {% endif %}
           </section>
           <div class="section-visual publications-visual">
-            <div class="visual-icon">📄</div>
+            <div class="visual-icon"><i class="fas fa-file-alt"></i></div>
           </div>
         </div>
 
@@ -541,7 +637,7 @@ a:hover {
             {% endfor %}
           </section>
           <div class="section-visual teaching-visual">
-            <div class="visual-icon">🏫</div>
+            <div class="visual-icon"><i class="fas fa-chalkboard-teacher"></i></div>
           </div>
         </div>
         {% endif %}
@@ -602,7 +698,7 @@ a:hover {
             </ul>
           </section>
           <div class="section-visual cv-visual">
-            <div class="visual-icon">📋</div>
+            <div class="visual-icon"><i class="fas fa-file-pdf"></i></div>
           </div>
         </div>
 
