@@ -8,7 +8,7 @@
 
 # Basic Site Settings
 locale                   : "en-US"
-site_theme               : "default" # Currently available options are "default", "air"
+site_theme               : "modern" # Currently available options are "default", "air", "modern"
 title                    : "Guoliang Xu"
 title_separator          : "-"
 name                     : &name "Guoliang Xu"
