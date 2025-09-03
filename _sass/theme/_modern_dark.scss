@@ -1,0 +1,88 @@
+/* ==========================================================================
+   Modern Academic Theme - Dark Version
+   ========================================================================== */
+
+/* Color codes used for the theme */
+$primary-color              : #3b82f6;  // Lighter blue for dark mode
+$dark-primary-color         : mix(#fff, $primary-color, 25%);
+$darker-primary-color       : mix(#fff, $primary-color, 40%);
+$light-primary-color        : mix(#000, $primary-color, 30%);
+$lighter-primary-color      : mix(#000, $primary-color, 60%);
+
+$accent-color               : #06b6d4;  // Cyan accent
+$secondary-color            : #8b5cf6;  // Purple accent
+
+$background                 : #0f172a;
+$background-light           : #1e293b;
+$background-lighter         : #334155;
+$background-card            : #1e293b;
+$text                       : #f1f5f9;
+$text-light                 : #cbd5e1;
+$text-lighter               : #94a3b8;
+$link                       : $primary-color;
+$link-dark                  : $dark-primary-color;
+$link-light                 : $light-primary-color;
+$footer                     : $background-light;
+
+/* Enhanced color palette */
+$border-color               : #334155;
+$border-color-light         : #475569;
+$shadow-color               : rgba(0, 0, 0, 0.25);
+$shadow-color-hover         : rgba(0, 0, 0, 0.35);
+
+/* Color codes used for the site */
+$danger-color               : #f87171;
+$info-color                 : $accent-color;
+$notice-color               : #9ca3af;
+$success-color              : #4ade80;
+$warning-color              : #fbbf24;
+
+/* Modern styling settings */
+$border-radius              : 8px;
+$border-radius-sm           : 6px;
+$border-radius-lg           : 12px;
+$box-shadow                 : 0 1px 3px 0 $shadow-color, 0 1px 2px 0 rgba(0, 0, 0, 0.1);
+$box-shadow-md              : 0 4px 6px -1px $shadow-color, 0 2px 4px -1px rgba(0, 0, 0, 0.1);
+$box-shadow-lg              : 0 10px 15px -3px $shadow-color, 0 4px 6px -2px rgba(0, 0, 0, 0.1);
+$box-shadow-hover           : 0 4px 12px -2px $shadow-color-hover, 0 2px 8px -2px rgba(0, 0, 0, 0.15);
+$global-transition          : all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+$masthead-height            : 70px;
+$navicon-width              : 28px;
+$navicon-height             : 4px;
+$sidebar-link-max-width     : 250px;
+$sidebar-screen-min-width   : 1024px;
+
+/* Dark theme variables */
+html[data-theme="dark"] {
+    --global-base-color                 : #{$background};
+    --global-bg-color                   : #{$background};
+    --global-bg-light-color             : #{$background-light};
+    --global-bg-lighter-color           : #{$background-lighter};
+    --global-bg-card-color              : #{$background-card};
+    --global-footer-bg-color            : #{$footer};
+    --global-border-color               : #{$border-color};
+    --global-border-color-light         : #{$border-color-light};
+    --global-dark-border-color          : #{$border-color};
+    --global-code-background-color      : #{$background-lighter};
+    --global-code-text-color            : #{$text-light};
+    --global-fig-caption-color          : #{$text-light};
+    --global-link-color                 : #{$link};
+    --global-link-color-hover           : #{$link-dark};
+    --global-link-color-visited         : #{$link-light};
+    --global-masthead-link-color        : #{$text};
+    --global-masthead-link-color-hover  : #{$link};
+    --global-text-color                 : #{$text};
+    --global-text-color-light           : #{$text-light};
+    --global-text-color-lighter         : #{$text-lighter};
+    --global-thead-color                : #{$background-lighter};
+    
+    /* Modern specific variables */
+    --global-primary-color              : #{$primary-color};
+    --global-accent-color               : #{$accent-color};
+    --global-secondary-color            : #{$secondary-color};
+    --global-shadow-color               : #{$shadow-color};
+    --global-shadow-color-hover         : #{$shadow-color-hover};
+    --global-border-radius              : #{$border-radius};
+    --global-border-radius-sm           : #{$border-radius-sm};
+    --global-border-radius-lg           : #{$border-radius-lg};
+}

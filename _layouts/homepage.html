@@ -5,42 +5,226 @@ layout: default
 {% include base_path %}
 
 <style>
+/* Modern theme fallbacks */
+:root {
+  --global-primary-color: #2563eb;
+  --global-accent-color: #0891b2;
+  --global-secondary-color: #6366f1;
+  --global-bg-card-color: #ffffff;
+  --global-bg-light-color: #f8fafc;
+  --global-bg-lighter-color: #f1f5f9;
+  --global-border-color: #e2e8f0;
+  --global-border-color-light: #f1f5f9;
+  --global-text-color: #1e293b;
+  --global-text-color-light: #64748b;
+  --global-text-color-lighter: #94a3b8;
+  --global-shadow-color: rgba(15, 23, 42, 0.08);
+  --global-shadow-color-hover: rgba(15, 23, 42, 0.12);
+  --global-border-radius: 8px;
+  --global-border-radius-sm: 6px;
+  --global-border-radius-lg: 12px;
+  --global-transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
 .page__content {
   margin-bottom: 3em;
-  padding-bottom: 2em;
-  border-bottom: 1px solid var(--global-border-color);
+  padding: 2em;
+  background-color: var(--global-bg-card-color);
+  border-radius: var(--global-border-radius-lg);
+  box-shadow: var(--global-shadow-color) 0px 1px 3px 0px, var(--global-shadow-color) 0px 1px 2px 0px;
+  border: 1px solid var(--global-border-color-light);
+  transition: var(--global-transition);
+}
+
+.page__content:hover {
+  box-shadow: var(--global-shadow-color-hover) 0px 4px 12px -2px, var(--global-shadow-color-hover) 0px 2px 8px -2px;
+  transform: translateY(-2px);
 }
 
 .page__content:last-child {
   border-bottom: none;
 }
 
+.page__header {
+  margin-bottom: 1.5em;
+  padding-bottom: 0.75em;
+  border-bottom: 2px solid var(--global-primary-color);
+}
+
+.page__title {
+  color: var(--global-primary-color);
+  font-weight: 700;
+  margin: 0;
+  font-size: 1.8em;
+}
+
 .timeline { 
-  border-left: 3px solid #1E90FF; 
+  border-left: 3px solid var(--global-primary-color); 
   margin: 20px 0; 
   padding-left: 20px; 
+  position: relative;
 }
 
 .timeline-item { 
-  margin: 20px 0; 
-  position: relative; 
+  margin: 30px 0; 
+  position: relative;
+  padding: 1.5em;
+  background-color: var(--global-bg-light-color);
+  border-radius: var(--global-border-radius);
+  border: 1px solid var(--global-border-color-light);
+  transition: var(--global-transition);
+}
+
+.timeline-item:hover {
+  background-color: var(--global-bg-lighter-color);
+  box-shadow: var(--global-shadow-color) 0px 4px 6px -1px, var(--global-shadow-color) 0px 2px 4px -1px;
+  transform: translateX(5px);
 }
 
 .timeline-date { 
-  font-weight: bold; 
-  color: #1E90FF; 
-  margin-bottom: 5px; 
+  font-weight: 700; 
+  color: var(--global-primary-color); 
+  margin-bottom: 8px;
+  font-size: 0.9em;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
 .timeline-item::before { 
   content: ""; 
   position: absolute; 
   left: -11px; 
-  top: 5px; 
+  top: 20px; 
   width: 12px; 
   height: 12px; 
-  background-color: #1E90FF; 
-  border-radius: 50%; 
+  background-color: var(--global-primary-color); 
+  border-radius: 50%;
+  border: 3px solid var(--global-bg-card-color);
+  box-shadow: 0 0 0 3px var(--global-border-color-light);
+}
+
+/* Enhanced section styling */
+.bio-section {
+  background: linear-gradient(135deg, var(--global-bg-card-color) 0%, var(--global-bg-light-color) 100%);
+}
+
+.bio-section h2 {
+  color: var(--global-primary-color);
+  font-size: 1.6em;
+  margin-bottom: 1em;
+  font-weight: 600;
+}
+
+.recent-news {
+  background-color: var(--global-bg-lighter-color);
+  padding: 1.5em;
+  border-radius: var(--global-border-radius);
+  border-left: 4px solid var(--global-accent-color);
+  margin-top: 2em;
+}
+
+.recent-news h2 {
+  color: var(--global-accent-color);
+  margin-bottom: 1em;
+}
+
+.news-item {
+  margin-bottom: 1em;
+  padding: 1em;
+  background-color: var(--global-bg-card-color);
+  border-radius: var(--global-border-radius-sm);
+  border: 1px solid var(--global-border-color-light);
+  transition: var(--global-transition);
+}
+
+.news-item:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--global-shadow-color) 0px 2px 8px 0px;
+}
+
+/* Publication cards */
+.publication-card {
+  background-color: var(--global-bg-card-color);
+  border: 1px solid var(--global-border-color);
+  border-radius: var(--global-border-radius);
+  padding: 1.5em;
+  margin-bottom: 1.5em;
+  transition: var(--global-transition);
+  position: relative;
+  overflow: hidden;
+}
+
+.publication-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 4px;
+  width: 100%;
+  background: linear-gradient(90deg, var(--global-primary-color), var(--global-accent-color));
+}
+
+.publication-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--global-shadow-color-hover) 0px 8px 25px -8px;
+  border-color: var(--global-primary-color);
+}
+
+.publication-card h2 {
+  margin-top: 0;
+  color: var(--global-text-color);
+  font-size: 1.2em;
+  font-weight: 600;
+}
+
+.publication-card h2 a {
+  color: inherit;
+  text-decoration: none;
+  transition: var(--global-transition);
+}
+
+.publication-card h2 a:hover {
+  color: var(--global-primary-color);
+}
+
+.publication-meta {
+  color: var(--global-text-color-light);
+  font-size: 0.9em;
+  margin-bottom: 0.5em;
+}
+
+.publication-venue {
+  color: var(--global-accent-color);
+  font-weight: 600;
+}
+
+/* CV section enhancements */
+.cv-section {
+  background-color: var(--global-bg-card-color);
+}
+
+.work-experience {
+  margin-bottom: 2em;
+}
+
+.work-item {
+  padding: 1.2em;
+  background-color: var(--global-bg-light-color);
+  border-radius: var(--global-border-radius);
+  border-left: 4px solid var(--global-secondary-color);
+  margin-bottom: 1em;
+  transition: var(--global-transition);
+}
+
+.work-item:hover {
+  background-color: var(--global-bg-lighter-color);
+  transform: translateX(3px);
+}
+
+.work-title {
+  color: var(--global-secondary-color);
+  font-weight: 600;
+  margin-bottom: 0.5em;
 }
 
 /* Smooth scroll offset for fixed header */
@@ -51,7 +235,7 @@ section[id] {
 /* Responsive design for mobile */
 @media (max-width: 768px) {
   .page__content {
-    padding-bottom: 1.5em;
+    padding: 1.5em;
     margin-bottom: 2em;
   }
   
@@ -59,9 +243,46 @@ section[id] {
     padding-left: 15px;
   }
   
+  .timeline-item {
+    padding: 1em;
+  }
+  
   section[id] {
     scroll-margin-top: 60px;
   }
+  
+  .publication-card {
+    padding: 1em;
+  }
+}
+
+/* Enhanced link styling */
+a {
+  transition: var(--global-transition);
+}
+
+a:hover {
+  transform: translateY(-1px);
+}
+
+/* Button styling for download links */
+.download-links a {
+  display: inline-block;
+  padding: 0.4em 0.8em;
+  margin: 0.2em;
+  background-color: var(--global-primary-color);
+  color: white;
+  text-decoration: none;
+  border-radius: var(--global-border-radius-sm);
+  font-size: 0.85em;
+  font-weight: 500;
+  transition: var(--global-transition);
+}
+
+.download-links a:hover {
+  background-color: var(--global-link-color-hover, #1d4ed8);
+  transform: translateY(-2px);
+  box-shadow: var(--global-shadow-color) 0px 4px 8px 0px;
 }
 </style>
 
@@ -72,8 +293,18 @@ section[id] {
     <div class="page__inner-wrap">
       
       <!-- About Section -->
-      <section id="about" class="page__content">
+      <section id="about" class="page__content bio-section">
         {{ content }}
+        
+        <div class="recent-news">
+          <h2>Recent News</h2>
+          <div class="news-item">
+            <strong>[July 2025]</strong> Paper <em><a href="https://escholarship.org/uc/item/7wm1k7cv">Extracting Latent Dimensions from Multidimensional Response Timing Data</a></em> was published in the <strong>Proceedings of the 47th Annual Meeting of the Cognitive Science Society (CogSci 2025)</strong> and presented in San Francisco.
+          </div>
+          <div class="news-item">
+            <strong>[April 2025]</strong> Presented at the <strong>National Council on Measurement in Education (NCME)</strong> Annual Meeting, Denver, Colorado.
+          </div>
+        </div>
       </section>
 
       <!-- Education Section -->
@@ -85,27 +316,27 @@ section[id] {
         <div class="timeline">
           <div class="timeline-item">
             <div class="timeline-date">2022–2026 (expected)</div>
-            <div class="timeline-content">
-              <strong>Ph.D. in Applied Statistics</strong>, Columbia University  
-              GPA: 4.09/4.00 • Doctoral Fellowship Recipient, ABD  
+            <div>
+              <strong>Ph.D. in Applied Statistics</strong>, Columbia University<br>
+              GPA: 4.09/4.00 • Doctoral Fellowship Recipient, ABD<br>
               Focus: Machine Learning, LLM-RAG
             </div>
           </div>
-
+          
           <div class="timeline-item">
             <div class="timeline-date">2020–2022</div>
-            <div class="timeline-content">
-              <strong>M.S. in Applied Statistics</strong>, Columbia University  
-              GPA: 4.09/4.00  
+            <div>
+              <strong>M.S. in Applied Statistics</strong>, Columbia University<br>
+              GPA: 4.09/4.00<br>
               Courses: Computational Statistics, Data Analysis in R, Data Mining, Bayesian Statistics, Data Science
             </div>
           </div>
-
+          
           <div class="timeline-item">
             <div class="timeline-date">2015–2020</div>
-            <div class="timeline-content">
-              <strong>B.A. in Economics and Finance (First Class Honours)</strong>, University of Aberdeen  
-              GPA: 3.71/4.00  
+            <div>
+              <strong>B.A. in Economics and Finance (First Class Honours)</strong>, University of Aberdeen<br>
+              GPA: 3.71/4.00<br>
               Courses: Econometrics, Corporate Finance, Derivatives and Treasury Management, Empirical Methods in Finance
             </div>
           </div>
@@ -134,10 +365,30 @@ section[id] {
                 <h2>{{ category[1].title }}</h2><hr />
                 {% assign title_shown = true %}
               {% endunless %}
-              {% include archive-single.html %}
+              <div class="publication-card">
+                <h2><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h2>
+                <div class="publication-meta">
+                  Published in <span class="publication-venue">{{ post.venue }}</span>, {{ post.date | date: "%Y" }}
+                </div>
+                {% if post.excerpt %}
+                  <p>{{ post.excerpt | markdownify | strip_html | truncate: 160 }}</p>
+                {% endif %}
+                <div class="download-links">
+                  {% if post.paperurl %}
+                    <a href="{{ post.paperurl }}">Download Paper</a>
+                  {% endif %}
+                  {% if post.slidesurl %}
+                    <a href="{{ post.slidesurl }}">Download Slides</a>
+                  {% endif %}
+                  {% if post.codeurl %}
+                    <a href="{{ post.codeurl }}">View Code</a>
+                  {% endif %}
+                </div>
+              </div>
             {% endfor %}
           {% endfor %}
         {% else %}
+          <!-- Original style for compatibility -->
           {% for post in site.publications reversed %}
             {% include archive-single.html %}
           {% endfor %}
@@ -145,6 +396,7 @@ section[id] {
       </section>
 
       <!-- Teaching Section -->
+      {% if site.teaching.size > 0 %}
       <section id="teaching" class="page__content">
         <header class="page__header">
           <h1 class="page__title">Teaching</h1>
@@ -154,38 +406,44 @@ section[id] {
           {% include archive-single.html %}
         {% endfor %}
       </section>
+      {% endif %}
 
       <!-- CV Section -->
-      <section id="cv" class="page__content">
+      <section id="cv" class="page__content cv-section">
         <header class="page__header">
           <h1 class="page__title">CV</h1>
         </header>
         
-        <h2>Work experience</h2>
-        <ul>
-          <li><strong>Spring 2024: Academic Pages Collaborator</strong>
+        <div class="work-experience">
+          <h2>Work experience</h2>
+          <div class="work-item">
+            <div class="work-title">Spring 2024: Academic Pages Collaborator</div>
             <ul>
               <li>GitHub University</li>
               <li>Duties includes: Updates and improvements to template</li>
               <li>Supervisor: The Users</li>
             </ul>
-          </li>
-          <li><strong>Fall 2015: Research Assistant</strong>
+          </div>
+          
+          <div class="work-item">
+            <div class="work-title">Fall 2015: Research Assistant</div>
             <ul>
               <li>GitHub University</li>
               <li>Duties included: Merging pull requests</li>
               <li>Supervisor: Professor Hub</li>
             </ul>
-          </li>
-          <li><strong>Summer 2015: Research Assistant</strong>
+          </div>
+          
+          <div class="work-item">
+            <div class="work-title">Summer 2015: Research Assistant</div>
             <ul>
               <li>GitHub University</li>
               <li>Duties included: Tagging issues</li>
               <li>Supervisor: Professor Git</li>
             </ul>
-          </li>
-        </ul>
-        
+          </div>
+        </div>
+
         <h2>Skills</h2>
         <ul>
           <li>Skill 1</li>
