@@ -24,6 +24,9 @@ layout: default
   --global-border-radius-sm: 6px;
   --global-border-radius-lg: 12px;
   --global-transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --global-base-color: #2563eb;
+  --global-link-color: #2563eb;
+  --global-link-color-hover: #1d4ed8;
 }
 
 .page__content {
@@ -387,18 +390,44 @@ a:hover {
   padding: 0.4em 0.8em;
   margin: 0.2em;
   background-color: var(--global-primary-color);
-  color: white;
+  color: white !important;
   text-decoration: none;
   border-radius: var(--global-border-radius-sm);
   font-size: 0.85em;
   font-weight: 500;
   transition: var(--global-transition);
+  border: none;
+  cursor: pointer;
 }
 
 .download-links a:hover {
   background-color: var(--global-link-color-hover, #1d4ed8);
   transform: translateY(-2px);
   box-shadow: var(--global-shadow-color) 0px 4px 8px 0px;
+  color: white !important;
+}
+
+/* Fix any button display issues */
+.btn {
+  display: inline-block !important;
+  padding: 0.5em 1em;
+  background-color: var(--global-primary-color);
+  color: white !important;
+  text-decoration: none;
+  border-radius: var(--global-border-radius);
+  font-weight: 600;
+  transition: var(--global-transition);
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.btn:hover {
+  background-color: var(--global-link-color-hover, #1d4ed8);
+  color: white !important;
+  transform: translateY(-1px);
+  box-shadow: var(--global-shadow-color) 0px 4px 8px 0px;
+  
 }
 </style>
 
@@ -411,7 +440,7 @@ a:hover {
       <div class="content-container">
         
         <!-- About Section -->
-        <div class="section-wrapper left-layout">
+        <div class="section-wrapper right-layout">
           <section id="about" class="page__content bio-section section-content">
             {{ content }}
             
@@ -426,12 +455,21 @@ a:hover {
             </div>
           </section>
           <div class="section-visual about-visual">
-            <div class="visual-icon">👨‍🎓</div>
+            
+            {% if site.author.avatar %}
+              {% if site.author.avatar contains "://" %}
+                <img src="{{ site.author.avatar }}" alt="{{ site.author.name }}" class="hero-avatar" />
+              {% else %}
+                <img src="{{ site.author.avatar | prepend: "/images/" | prepend: base_path }}" alt="{{ site.author.name }}" class="hero-avatar" />
+              {% endif %}
+            {% else %}
+              <div class="visual-icon">👨‍🎓</div>
+            {% endif %}
           </div>
         </div>
 
         <!-- Education Section -->
-        <div class="section-wrapper right-layout">
+        <div class="section-wrapper left-layout">
           <section id="education" class="page__content section-content">
             <header class="page__header">
               <h1 class="page__title">Education</h1>
@@ -472,7 +510,7 @@ a:hover {
         </div>
 
         <!-- Publications Section -->
-        <div class="section-wrapper left-layout">
+        <div class="section-wrapper right-layout">
           <section id="publications" class="page__content section-content">
             <header class="page__header">
               <h1 class="page__title">Publications</h1>
@@ -530,7 +568,7 @@ a:hover {
 
         <!-- Teaching Section -->
         {% if site.teaching.size > 0 %}
-        <div class="section-wrapper right-layout">
+        <div class="section-wrapper left-layout">
           <section id="teaching" class="page__content section-content">
             <header class="page__header">
               <h1 class="page__title">Teaching</h1>
@@ -547,7 +585,7 @@ a:hover {
         {% endif %}
 
         <!-- CV Section -->
-        <div class="section-wrapper left-layout">
+        <div class="section-wrapper right-layout">
           <section id="cv" class="page__content cv-section section-content">
             <header class="page__header">
               <h1 class="page__title">CV</h1>
