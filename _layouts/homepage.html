@@ -455,16 +455,8 @@ a:hover {
             </div>
           </section>
           <div class="section-visual about-visual">
+            <div class="visual-icon"> </div>
             
-            {% if site.author.avatar %}
-              {% if site.author.avatar contains "://" %}
-                <img src="{{ site.author.avatar }}" alt="{{ site.author.name }}" class="hero-avatar" />
-              {% else %}
-                <img src="{{ site.author.avatar | prepend: "/images/" | prepend: base_path }}" alt="{{ site.author.name }}" class="hero-avatar" />
-              {% endif %}
-            {% else %}
-              <div class="visual-icon">👨‍🎓</div>
-            {% endif %}
           </div>
         </div>
 
@@ -505,7 +497,7 @@ a:hover {
             </div>
           </section>
           <div class="section-visual education-visual">
-            <div class="visual-icon">🎓</div>
+            <div class="visual-icon"> </div>
           </div>
         </div>
 
@@ -579,7 +571,7 @@ a:hover {
             {% endfor %}
           </section>
           <div class="section-visual teaching-visual">
-            <div class="visual-icon">🏫</div>
+            <div class="visual-icon"> </div>
           </div>
         </div>
         {% endif %}
@@ -640,7 +632,7 @@ a:hover {
             </ul>
           </section>
           <div class="section-visual cv-visual">
-            <div class="visual-icon">📋</div>
+            <div class="visual-icon"> </div>
           </div>
         </div>
 
