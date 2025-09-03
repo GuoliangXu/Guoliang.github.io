@@ -260,6 +260,51 @@ layout: default
   min-width: 0; /* Prevent flex item overflow */
 }
 
+.section-visual {
+  flex: 0 0 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, var(--global-bg-lighter-color), var(--global-bg-light-color));
+  border-radius: var(--global-border-radius-lg);
+  padding: 2em;
+  box-shadow: var(--global-shadow-color) 0px 2px 8px 0px;
+  border: 1px solid var(--global-border-color-light);
+  transition: var(--global-transition);
+}
+
+.section-visual:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--global-shadow-color-hover) 0px 8px 25px -8px;
+}
+
+.visual-icon {
+  font-size: 4em;
+  color: var(--global-primary-color);
+  opacity: 0.7;
+}
+
+.about-visual .visual-icon {
+  color: var(--global-accent-color);
+}
+
+.education-visual .visual-icon {
+  color: var(--global-secondary-color);
+}
+
+.publications-visual .visual-icon {
+  color: var(--global-primary-color);
+}
+
+.teaching-visual .visual-icon {
+  color: #059669;
+}
+
+.cv-visual .visual-icon {
+  color: #dc2626;
+}
+
 /* Smooth scroll offset for fixed header */
 section[id] {
   scroll-margin-top: 80px;
@@ -274,6 +319,15 @@ section[id] {
   
   .section-wrapper {
     gap: 2em;
+  }
+  
+  .section-visual {
+    flex: 0 0 200px;
+    padding: 1.5em;
+  }
+  
+  .visual-icon {
+    font-size: 3em;
   }
 }
 
@@ -308,9 +362,20 @@ section[id] {
     min-height: auto;
   }
   
+  .section-visual {
+    flex: none;
+    width: 100%;
+    padding: 1em;
+    text-align: center;
+  }
+  
   .hero-avatar {
     width: 150px;
     height: 150px;
+  }
+  
+  .visual-icon {
+    font-size: 2.5em;
   }
   
   .timeline {
@@ -518,7 +583,7 @@ a:hover {
         </div>
 
         <!-- Education Section -->
-        <div class="section-wrapper left-layout">
+        <div class="section-wrapper right-layout">
           <section id="education" class="page__content section-content">
             <header class="page__header">
               <h1 class="page__title">Education</h1>
@@ -553,6 +618,9 @@ a:hover {
               </div>
             </div>
           </section>
+          <div class="section-visual education-visual">
+            <div class="visual-icon">🎓</div>
+          </div>
         </div>
 
         <!-- Publications Section -->
@@ -607,11 +675,14 @@ a:hover {
               {% endfor %}
             {% endif %}
           </section>
+          <div class="section-visual publications-visual">
+            <div class="visual-icon">📄</div>
+          </div>
         </div>
 
         <!-- Teaching Section -->
         {% if site.teaching.size > 0 %}
-        <div class="section-wrapper left-layout">
+        <div class="section-wrapper right-layout">
           <section id="teaching" class="page__content section-content">
             <header class="page__header">
               <h1 class="page__title">Teaching</h1>
@@ -621,6 +692,9 @@ a:hover {
               {% include archive-single.html %}
             {% endfor %}
           </section>
+          <div class="section-visual teaching-visual">
+            <div class="visual-icon">🏫</div>
+          </div>
         </div>
         {% endif %}
 
@@ -679,6 +753,9 @@ a:hover {
               <li>Currently signed in to 43 different slack teams</li>
             </ul>
           </section>
+          <div class="section-visual cv-visual">
+            <div class="visual-icon">📋</div>
+          </div>
         </div>
 
       </div>
