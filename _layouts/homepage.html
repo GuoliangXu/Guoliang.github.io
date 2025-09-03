@@ -304,6 +304,61 @@ layout: default
   color: #dc2626;
 }
 
+/* Portfolio visual styling */
+.portfolio-visual {
+  background: linear-gradient(135deg, var(--global-bg-lighter-color), var(--global-bg-light-color));
+  overflow-y: auto;
+  max-height: 400px;
+}
+
+.portfolio-content {
+  width: 100%;
+  text-align: center;
+}
+
+.portfolio-content h3 {
+  color: var(--global-primary-color);
+  margin-bottom: 1em;
+  font-size: 1.5em;
+  font-weight: 600;
+}
+
+.portfolio-item {
+  margin-bottom: 1.5em;
+  padding: 1em;
+  background-color: var(--global-bg-card-color);
+  border-radius: var(--global-border-radius);
+  border: 1px solid var(--global-border-color-light);
+  transition: var(--global-transition);
+}
+
+.portfolio-item:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--global-shadow-color) 0px 4px 8px 0px;
+}
+
+.portfolio-item h4 {
+  color: var(--global-secondary-color);
+  margin: 0 0 0.5em 0;
+  font-size: 1.1em;
+}
+
+.portfolio-item h4 a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.portfolio-item h4 a:hover {
+  color: var(--global-primary-color);
+}
+
+.portfolio-item p {
+  color: var(--global-text-color-light);
+  font-size: 0.9em;
+  margin: 0;
+  line-height: 1.4;
+}
+
 /* Smooth scroll offset for fixed header */
 section[id] {
   scroll-margin-top: 80px;
@@ -533,8 +588,25 @@ a:hover {
           {% endif %}
         </div>
         
-        <!-- About Section -->
-        <div class="section-wrapper right-layout">
+        <!-- About Section with Portfolio Visual -->
+        <div class="section-wrapper left-layout">
+          <div class="section-visual portfolio-visual">
+            <div class="portfolio-content">
+              <h3>Portfolio</h3>
+              {% for post in site.portfolio %}
+                <div class="portfolio-item">
+                  <h4><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h4>
+                  {% if post.excerpt %}
+                    <p>{{ post.excerpt | markdownify | strip_html | truncate: 100 }}</p>
+                  {% endif %}
+                </div>
+              {% endfor %}
+              {% if site.portfolio.size == 0 %}
+                <div class="visual-icon">💼</div>
+                <p>Portfolio content coming soon</p>
+              {% endif %}
+            </div>
+          </div>
           <section id="about" class="page__content bio-section section-content">
             {{ content }}
             
@@ -548,17 +620,6 @@ a:hover {
               </div>
             </div>
           </section>
-          <div class="section-visual about-visual">
-            {% if site.author.avatar %}
-              {% if site.author.avatar contains "://" %}
-                <img src="{{ site.author.avatar }}" alt="{{ site.author.name }}" class="hero-avatar" />
-              {% else %}
-                <img src="{{ site.author.avatar | prepend: "/images/" | prepend: base_path }}" alt="{{ site.author.name }}" class="hero-avatar" />
-              {% endif %}
-            {% else %}
-              <div class="visual-icon">👨‍🎓</div>
-            {% endif %}
-          </div>
         </div>
 
         <!-- Education Section -->
@@ -603,7 +664,10 @@ a:hover {
         </div>
 
         <!-- Publications Section -->
-        <div class="section-wrapper right-layout">
+        <div class="section-wrapper left-layout">
+          <div class="section-visual publications-visual">
+            <div class="visual-icon">📄</div>
+          </div>
           <section id="publications" class="page__content section-content">
             <header class="page__header">
               <h1 class="page__title">Publications</h1>
@@ -654,9 +718,6 @@ a:hover {
               {% endfor %}
             {% endif %}
           </section>
-          <div class="section-visual publications-visual">
-            <div class="visual-icon">📄</div>
-          </div>
         </div>
 
         <!-- Teaching Section -->
@@ -678,7 +739,10 @@ a:hover {
         {% endif %}
 
         <!-- CV Section -->
-        <div class="section-wrapper right-layout">
+        <div class="section-wrapper left-layout">
+          <div class="section-visual cv-visual">
+            <div class="visual-icon">📋</div>
+          </div>
           <section id="cv" class="page__content cv-section section-content">
             <header class="page__header">
               <h1 class="page__title">CV</h1>
@@ -732,9 +796,6 @@ a:hover {
               <li>Currently signed in to 43 different slack teams</li>
             </ul>
           </section>
-          <div class="section-visual cv-visual">
-            <div class="visual-icon">📋</div>
-          </div>
         </div>
 
       </div>
