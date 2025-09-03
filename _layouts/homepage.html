@@ -263,6 +263,7 @@ layout: default
 .section-visual {
   flex: 0 0 300px;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   background: linear-gradient(135deg, var(--global-bg-lighter-color), var(--global-bg-light-color));
@@ -466,6 +467,17 @@ a:hover {
   box-shadow: var(--global-shadow-color-hover) 0px 12px 30px -8px;
 }
 
+/* Author location styling */
+.author-location {
+  margin-top: 1em;
+  color: var(--global-text-color-light);
+  font-size: 0.9em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5em;
+}
+
 /* Button styling for download links */
 .download-links a {
   display: inline-block;
@@ -520,17 +532,9 @@ a:hover {
       
       <div class="content-container">
         
-        <!-- Header Section with Name and LinkedIn -->
+        <!-- Header Section with Name only -->
         <div class="hero-header">
           <h1 class="hero-name">{{ site.author.name }}</h1>
-          {% if site.author.linkedin %}
-          <div class="hero-linkedin">
-            <a href="https://www.linkedin.com/in/{{ site.author.linkedin }}" class="linkedin-btn">
-              <i class="fab fa-fw fa-linkedin" aria-hidden="true"></i>
-              LinkedIn Profile
-            </a>
-          </div>
-          {% endif %}
         </div>
         
         <!-- About Section -->
@@ -557,6 +561,23 @@ a:hover {
               {% endif %}
             {% else %}
               <div class="visual-icon">👨‍🎓</div>
+            {% endif %}
+            
+            <!-- LinkedIn and Location below image -->
+            {% if site.author.linkedin %}
+            <div class="hero-linkedin">
+              <a href="https://www.linkedin.com/in/{{ site.author.linkedin }}" class="linkedin-btn">
+                <i class="fab fa-fw fa-linkedin" aria-hidden="true"></i>
+                LinkedIn Profile
+              </a>
+            </div>
+            {% endif %}
+            
+            {% if site.author.location %}
+            <div class="author-location">
+              <i class="fas fa-fw fa-map-marker-alt" aria-hidden="true"></i>
+              {{ site.author.location }}
+            </div>
             {% endif %}
           </div>
         </div>
