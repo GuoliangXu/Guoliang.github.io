@@ -561,7 +561,7 @@ a:hover:not(.download-links a):not(.btn) {
             </header>
             
             {% for post in site.portfolio reversed %}
-              {% include archive-single.html %}
+              {% include archive-single.html type="grid" %}
             {% endfor %}
           </section>
           <div class="section-visual portfolio-visual">
