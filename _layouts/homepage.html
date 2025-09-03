@@ -341,6 +341,20 @@ section[id] {
     gap: 2em;
   }
   
+  .hero-header {
+    padding: 1.5em 1em;
+    margin-bottom: 2em;
+  }
+  
+  .hero-name {
+    font-size: 2em;
+  }
+  
+  .linkedin-btn {
+    padding: 0.6em 1.2em;
+    font-size: 0.9em;
+  }
+  
   .section-wrapper {
     flex-direction: column !important;
     gap: 1.5em;
@@ -352,6 +366,11 @@ section[id] {
     width: 100%;
     padding: 1em;
     text-align: center;
+  }
+  
+  .hero-avatar {
+    width: 150px;
+    height: 150px;
   }
   
   .visual-icon {
@@ -453,17 +472,42 @@ a:hover {
   padding: 0.4em 0.8em;
   margin: 0.2em;
   background-color: var(--global-primary-color);
-  color: white;
+  color: white !important;
   text-decoration: none;
   border-radius: var(--global-border-radius-sm);
   font-size: 0.85em;
   font-weight: 500;
   transition: var(--global-transition);
+  border: none;
+  cursor: pointer;
 }
 
 .download-links a:hover {
   background-color: var(--global-link-color-hover, #1d4ed8);
   transform: translateY(-2px);
+  box-shadow: var(--global-shadow-color) 0px 4px 8px 0px;
+  color: white !important;
+}
+
+/* Fix any button display issues */
+.btn {
+  display: inline-block !important;
+  padding: 0.5em 1em;
+  background-color: var(--global-primary-color);
+  color: white !important;
+  text-decoration: none;
+  border-radius: var(--global-border-radius);
+  font-weight: 600;
+  transition: var(--global-transition);
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.btn:hover {
+  background-color: var(--global-link-color-hover, #1d4ed8);
+  color: white !important;
+  transform: translateY(-1px);
   box-shadow: var(--global-shadow-color) 0px 4px 8px 0px;
 }
 </style>
