@@ -16,7 +16,7 @@ let determineComputedTheme = () => {
   if (themeSetting != "system") {
     return themeSetting;
   }
-  return (userPref && userPref("(prefers-color-scheme: dark)").matches) ? "dark" : "light";
+  return window.matchMedia('(prefers-color-scheme: dark)').matches ? "dark" : "light";
 };
 
 // detect OS/browser preference
@@ -75,7 +75,14 @@ if (plotlyElements.length > 0) {
         } else {
           jsonData.layout = { template: theme };
         }
-        Plotly.react(chartElement, jsonData.data, jsonData.layout);
+        
+        // Only render if Plotly is available
+        if (typeof Plotly !== 'undefined') {
+          Plotly.react(chartElement, jsonData.data, jsonData.layout);
+        } else {
+          // Fallback: show the JSON data if Plotly is not available
+          chartElement.innerHTML = '<pre>' + JSON.stringify(jsonData, null, 2) + '</pre>';
+        }
       });
     }
   });
