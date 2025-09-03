@@ -29,6 +29,26 @@ layout: default
   --global-link-color-hover: #1d4ed8;
 }
 
+/* Dark theme variables */
+[data-theme="dark"] {
+  --global-primary-color: #3b82f6;
+  --global-accent-color: #06b6d4;
+  --global-secondary-color: #8b5cf6;
+  --global-bg-card-color: #1e293b;
+  --global-bg-light-color: #1e293b;
+  --global-bg-lighter-color: #334155;
+  --global-border-color: #334155;
+  --global-border-color-light: #475569;
+  --global-text-color: #f1f5f9;
+  --global-text-color-light: #cbd5e1;
+  --global-text-color-lighter: #94a3b8;
+  --global-shadow-color: rgba(0, 0, 0, 0.25);
+  --global-shadow-color-hover: rgba(0, 0, 0, 0.35);
+  --global-base-color: #3b82f6;
+  --global-link-color: #3b82f6;
+  --global-link-color-hover: #60a5fa;
+}
+
 .page__content {
   margin-bottom: 3em;
   padding: 2em;
@@ -46,6 +66,11 @@ layout: default
 
 .page__content:last-child {
   border-bottom: none;
+}
+
+/* Global text color for theme support */
+body, .page__content, .section-content {
+  color: var(--global-text-color);
 }
 
 .page__header {
@@ -455,7 +480,9 @@ a:hover {
             </div>
           </section>
           <div class="section-visual about-visual">
-            <div class="visual-icon"> </div>
+            <div class="visual-icon">
+              <i class="fas fa-user" aria-hidden="true"></i>
+            </div>
             
           </div>
         </div>
@@ -497,7 +524,9 @@ a:hover {
             </div>
           </section>
           <div class="section-visual education-visual">
-            <div class="visual-icon"> </div>
+            <div class="visual-icon">
+              <i class="fas fa-graduation-cap" aria-hidden="true"></i>
+            </div>
           </div>
         </div>
 
@@ -554,7 +583,9 @@ a:hover {
             {% endif %}
           </section>
           <div class="section-visual publications-visual">
-            <div class="visual-icon"> </div>
+            <div class="visual-icon">
+              <i class="fas fa-file-alt" aria-hidden="true"></i>
+            </div>
           </div>
         </div>
 
@@ -571,7 +602,9 @@ a:hover {
             {% endfor %}
           </section>
           <div class="section-visual teaching-visual">
-            <div class="visual-icon"> </div>
+            <div class="visual-icon">
+              <i class="fas fa-chalkboard-teacher" aria-hidden="true"></i>
+            </div>
           </div>
         </div>
         {% endif %}
@@ -632,7 +665,9 @@ a:hover {
             </ul>
           </section>
           <div class="section-visual cv-visual">
-            <div class="visual-icon"> </div>
+            <div class="visual-icon">
+              <i class="fas fa-file-user" aria-hidden="true"></i>
+            </div>
           </div>
         </div>
 
