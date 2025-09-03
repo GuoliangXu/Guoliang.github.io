@@ -1,11 +1,3 @@
-<style>
-.timeline { border-left: 3px solid #1E90FF; margin:20px 0; padding-left:20px; }
-.timeline-item { margin:20px 0; position:relative; }
-.timeline-date { font-weight:bold; color:#1E90FF; margin-bottom:5px; }
-.timeline-item::before { content:""; position:absolute; left:-11px; top:5px; width:12px; height:12px; background-color:#1E90FF; border-radius:50%; }
-</style>
-
-
 ---
 permalink: /
 title: "Guoliang Xu"
@@ -14,6 +6,7 @@ redirect_from:
   - /about/
   - /about.html
 ---
+
 **Bio** 
 Guoliang Xu is a Ph.D. candidate in Applied Statistics at Columbia University, specializing in statistical data analysis and machine learning. His research focuses on large language models (LLMs) and retrieval-augmented generation (RAG), examining how they can be integrated into psychometric and statistical frameworks to enhance modeling and interpretation. Building on this integration, he develops approaches that uncover latent structures, provide interpretable measures, and support evidence-based decision making.
 
