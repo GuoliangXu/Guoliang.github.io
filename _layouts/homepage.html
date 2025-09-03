@@ -304,6 +304,22 @@ layout: default
   color: #dc2626;
 }
 
+/* Author portfolio photo styling */
+.author-portfolio-photo {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid var(--global-accent-color);
+  box-shadow: var(--global-shadow-color) 0px 8px 25px -8px;
+  transition: var(--global-transition);
+}
+
+.author-portfolio-photo:hover {
+  transform: scale(1.05);
+  box-shadow: var(--global-shadow-color-hover) 0px 12px 35px -8px;
+}
+
 /* Smooth scroll offset for fixed header */
 section[id] {
   scroll-margin-top: 80px;
@@ -327,6 +343,11 @@ section[id] {
   
   .visual-icon {
     font-size: 3em;
+  }
+  
+  .author-portfolio-photo {
+    width: 180px;
+    height: 180px;
   }
 }
 
@@ -356,6 +377,11 @@ section[id] {
   
   .visual-icon {
     font-size: 2.5em;
+  }
+  
+  .author-portfolio-photo {
+    width: 150px;
+    height: 150px;
   }
   
   .timeline {
@@ -455,8 +481,9 @@ a:hover {
             </div>
           </section>
           <div class="section-visual about-visual">
-            <div class="visual-icon"> </div>
-            
+            <div class="visual-icon">
+              <img src="{{ site.author.avatar | prepend: '/images/' | prepend: base_path }}" alt="{{ site.author.name }}" class="author-portfolio-photo">
+            </div>
           </div>
         </div>
 
