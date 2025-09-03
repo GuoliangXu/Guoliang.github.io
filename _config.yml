@@ -17,7 +17,8 @@ url                      : https://guoliangxu.github.io #https://academicpages.g
 baseurl                  : "" # the subpath of your site, e.g. "/blog"
 repository               : "guoliangxu/guoliangxu.github.io"
 
-remote_theme: academicpages/academicpages
+remote_theme: academicpages/academicpages.github.io
+
 
 # Site Author - The following control what appear as part of the author content on the side bar.
 #               If a field is blank the icon and link will not appear, otherwise it will be shown.
