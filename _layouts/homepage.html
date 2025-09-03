@@ -263,7 +263,6 @@ layout: default
 .section-visual {
   flex: 0 0 300px;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
   background: linear-gradient(135deg, var(--global-bg-lighter-color), var(--global-bg-light-color));
@@ -272,12 +271,6 @@ layout: default
   box-shadow: var(--global-shadow-color) 0px 2px 8px 0px;
   border: 1px solid var(--global-border-color-light);
   transition: var(--global-transition);
-}
-
-/* Special styling for about visual to accommodate author profile */
-.about-visual {
-  flex: 0 0 350px;
-  padding: 1.5em;
 }
 
 .section-visual:hover {
@@ -293,92 +286,6 @@ layout: default
 
 .about-visual .visual-icon {
   color: var(--global-accent-color);
-}
-
-/* Style author profile when in section visual area */
-.section-visual .author__avatar {
-  width: 120px;
-  height: 120px;
-  margin-bottom: 1em;
-}
-
-.section-visual .author__avatar img {
-  width: 120px;
-  height: 120px;
-  border-radius: 50%;
-  border: 3px solid var(--global-accent-color);
-  box-shadow: var(--global-shadow-color) 0px 4px 12px 0px;
-}
-
-.section-visual .author__content {
-  text-align: center;
-  padding: 0;
-}
-
-.section-visual .author__name {
-  font-size: 1.2em;
-  color: var(--global-primary-color);
-  margin-bottom: 0.5em;
-  font-weight: 600;
-}
-
-.section-visual .author__bio {
-  font-size: 0.9em;
-  color: var(--global-text-color-light);
-  margin-bottom: 1em;
-  line-height: 1.4;
-}
-
-.section-visual .author__urls-wrapper {
-  display: block;
-  position: static;
-}
-
-.section-visual .author__urls {
-  display: block;
-  position: static;
-  background: none;
-  border: none;
-  box-shadow: none;
-  padding: 0;
-  margin: 0;
-  list-style: none;
-}
-
-.section-visual .author__urls li {
-  display: inline-block;
-  margin: 0.2em;
-}
-
-.section-visual .author__desktop {
-  color: var(--global-text-color-light);
-  font-size: 0.8em;
-  padding: 0.3em 0.5em;
-  background: var(--global-bg-light-color);
-  border: 1px solid var(--global-border-color-light);
-  border-radius: var(--global-border-radius-sm);
-}
-
-.section-visual .author__urls a {
-  font-size: 0.8em;
-  color: var(--global-text-color);
-  text-decoration: none;
-  padding: 0.3em 0.5em;
-  border-radius: var(--global-border-radius-sm);
-  background: var(--global-bg-light-color);
-  border: 1px solid var(--global-border-color-light);
-  transition: var(--global-transition);
-}
-
-.section-visual .author__urls a:hover {
-  background: var(--global-accent-color);
-  color: white;
-  transform: translateY(-1px);
-}
-
-/* Ensure desktop-only items are visible in section visual */
-.section-visual .author__desktop {
-  display: block;
 }
 
 .education-visual .visual-icon {
@@ -418,15 +325,6 @@ section[id] {
     padding: 1.5em;
   }
   
-  .about-visual {
-    flex: 0 0 250px;
-  }
-  
-  .section-visual .author__avatar img {
-    width: 100px;
-    height: 100px;
-  }
-  
   .visual-icon {
     font-size: 3em;
   }
@@ -453,22 +351,6 @@ section[id] {
     flex: none;
     width: 100%;
     padding: 1em;
-    text-align: center;
-  }
-  
-  .section-visual .author__avatar img {
-    width: 80px;
-    height: 80px;
-  }
-  
-  .section-visual .author__urls li {
-    display: block;
-    margin: 0.3em 0;
-  }
-  
-  .section-visual .author__urls a {
-    display: block;
-    width: 100%;
     text-align: center;
   }
   
@@ -550,16 +432,15 @@ a:hover {
 </style>
 
 <div id="main" role="main">
+  {% include sidebar.html %}
+
   <article class="page" itemscope itemtype="http://schema.org/CreativeWork">
     <div class="page__inner-wrap">
       
       <div class="content-container">
         
         <!-- About Section -->
-        <div class="section-wrapper left-layout">
-          <div class="section-visual about-visual">
-            {% include author-profile.html %}
-          </div>
+        <div class="section-wrapper right-layout">
           <section id="about" class="page__content bio-section section-content">
             {{ content }}
             
@@ -573,6 +454,10 @@ a:hover {
               </div>
             </div>
           </section>
+          <div class="section-visual about-visual">
+            <div class="visual-icon"> </div>
+            
+          </div>
         </div>
 
         <!-- Education Section -->
