@@ -17,6 +17,8 @@ url                      : https://guoliangxu.github.io #https://academicpages.g
 baseurl                  : "" # the subpath of your site, e.g. "/blog"
 repository               : "guoliangxu/guoliangxu.github.io"
 
+remote_theme: academicpages/academicpages
+
 # Site Author - The following control what appear as part of the author content on the side bar.
 #               If a field is blank the icon and link will not appear, otherwise it will be shown.
 #               Additional customization can be done by editing /_includes/author-profile.html
@@ -24,11 +26,11 @@ author:
   # Biographic information
   avatar           : "profile1.png"
   name             : "Guoliang Xu"
-  pronouns         : # example: "he/him/his"  
+  #pronouns         : # example: "he/him/his"  
   #bio              : "Short biography for the left-hand sidebar"
   location         : "New York City"
   #employer         : "Columbia University"
-  uri              : # URL
+  #uri              : # URL
   #email            : "none@example.org" 
 
   # Academic websites
