@@ -230,7 +230,7 @@ layout: default
   margin-bottom: 0.5em;
 }
 
-/* Alternating layout styles */
+/* Alternating layout styles - removed for single column layout */
 .content-container {
   display: flex;
   flex-direction: column;
@@ -238,26 +238,6 @@ layout: default
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 2em;
-}
-
-.section-wrapper {
-  display: flex;
-  align-items: flex-start;
-  gap: 3em;
-  min-height: 400px;
-}
-
-.section-wrapper.left-layout {
-  flex-direction: row;
-}
-
-.section-wrapper.right-layout {
-  flex-direction: row-reverse;
-}
-
-.section-content {
-  flex: 1;
-  min-width: 0; /* Prevent flex item overflow */
 }
 
 /* Smooth scroll offset for fixed header */
@@ -270,10 +250,6 @@ section[id] {
   .content-container {
     padding: 0 1em;
     gap: 3em;
-  }
-  
-  .section-wrapper {
-    gap: 2em;
   }
 }
 
@@ -302,15 +278,20 @@ section[id] {
     font-size: 0.9em;
   }
   
-  .section-wrapper {
-    flex-direction: column !important;
-    gap: 1.5em;
-    min-height: auto;
+  .author-info-section {
+    padding: 1.5em 1em;
+    margin-bottom: 2em;
   }
   
   .hero-avatar {
     width: 150px;
     height: 150px;
+  }
+  
+  .visual-icon {
+    width: 150px;
+    height: 150px;
+    font-size: 3em;
   }
   
   .timeline {
@@ -337,6 +318,37 @@ a {
 
 a:hover {
   transform: translateY(-1px);
+}
+
+/* Author info section for single-column layout */
+.author-info-section {
+  text-align: center;
+  margin-bottom: 3em;
+  padding: 2em 0;
+  background: linear-gradient(135deg, var(--global-bg-card-color) 0%, var(--global-bg-light-color) 100%);
+  border-radius: var(--global-border-radius-lg);
+  box-shadow: var(--global-shadow-color) 0px 2px 8px 0px;
+}
+
+.author-visual {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1em;
+}
+
+.visual-icon {
+  font-size: 4em;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, var(--global-primary-color), var(--global-accent-color));
+  color: white;
+  border: 4px solid var(--global-primary-color);
+  box-shadow: var(--global-shadow-color-hover) 0px 8px 25px -8px;
 }
 
 /* Hero header section */
@@ -472,22 +484,24 @@ a:hover {
           <h1 class="hero-name">{{ site.author.name }}</h1>
         </div>
         
-        <!-- About Section -->
-        <div class="section-wrapper right-layout">
-          <section id="about" class="page__content bio-section section-content">
-            {{ content }}
-            
-            <div class="recent-news">
-              <h2>Recent News</h2>
-              <div class="news-item">
-                <strong>[July 2025]</strong> Paper <em><a href="https://escholarship.org/uc/item/7wm1k7cv">Extracting Latent Dimensions from Multidimensional Response Timing Data</a></em> was published in the <strong>Proceedings of the 47th Annual Meeting of the Cognitive Science Society (CogSci 2025)</strong> and presented in San Francisco.
-              </div>
-              <div class="news-item">
-                <strong>[April 2025]</strong> Presented at the <strong>National Council on Measurement in Education (NCME)</strong> Annual Meeting, Denver, Colorado.
-              </div>
+        <!-- About Section - Single Column Layout -->
+        <section id="about" class="page__content bio-section">
+          {{ content }}
+          
+          <div class="recent-news">
+            <h2>Recent News</h2>
+            <div class="news-item">
+              <strong>[July 2025]</strong> Paper <em><a href="https://escholarship.org/uc/item/7wm1k7cv">Extracting Latent Dimensions from Multidimensional Response Timing Data</a></em> was published in the <strong>Proceedings of the 47th Annual Meeting of the Cognitive Science Society (CogSci 2025)</strong> and presented in San Francisco.
             </div>
-          </section>
-          <div class="section-visual about-visual">
+            <div class="news-item">
+              <strong>[April 2025]</strong> Presented at the <strong>National Council on Measurement in Education (NCME)</strong> Annual Meeting, Denver, Colorado.
+            </div>
+          </div>
+        </section>
+
+        <!-- Author Image and Links Section -->
+        <div class="author-info-section">
+          <div class="author-visual">
             {% if site.author.avatar %}
               {% if site.author.avatar contains "://" %}
                 <img src="{{ site.author.avatar }}" alt="{{ site.author.name }}" class="hero-avatar" />
@@ -518,168 +532,160 @@ a:hover {
         </div>
 
         <!-- Education Section -->
-        <div class="section-wrapper left-layout">
-          <section id="education" class="page__content section-content">
-            <header class="page__header">
-              <h1 class="page__title">Education</h1>
-            </header>
-            
-            <div class="timeline">
-              <div class="timeline-item">
-                <div class="timeline-date">2022–2026 (expected)</div>
-                <div>
-                  <strong>Ph.D. in Applied Statistics</strong>, Columbia University<br>
-                  GPA: 4.09/4.00 • Doctoral Fellowship Recipient, ABD<br>
-                  Focus: Machine Learning, LLM-RAG
-                </div>
-              </div>
-              
-              <div class="timeline-item">
-                <div class="timeline-date">2020–2022</div>
-                <div>
-                  <strong>M.S. in Applied Statistics</strong>, Columbia University<br>
-                  GPA: 4.09/4.00<br>
-                  Courses: Computational Statistics, Data Analysis in R, Data Mining, Bayesian Statistics, Data Science
-                </div>
-              </div>
-              
-              <div class="timeline-item">
-                <div class="timeline-date">2015–2020</div>
-                <div>
-                  <strong>B.A. in Economics and Finance (First Class Honours)</strong>, University of Aberdeen<br>
-                  GPA: 3.71/4.00<br>
-                  Courses: Econometrics, Corporate Finance, Derivatives and Treasury Management, Empirical Methods in Finance
-                </div>
+        <section id="education" class="page__content">
+          <header class="page__header">
+            <h1 class="page__title">Education</h1>
+          </header>
+          
+          <div class="timeline">
+            <div class="timeline-item">
+              <div class="timeline-date">2022–2026 (expected)</div>
+              <div>
+                <strong>Ph.D. in Applied Statistics</strong>, Columbia University<br>
+                GPA: 4.09/4.00 • Doctoral Fellowship Recipient, ABD<br>
+                Focus: Machine Learning, LLM-RAG
               </div>
             </div>
-          </section>
-        </div>
+            
+            <div class="timeline-item">
+              <div class="timeline-date">2020–2022</div>
+              <div>
+                <strong>M.S. in Applied Statistics</strong>, Columbia University<br>
+                GPA: 4.09/4.00<br>
+                Courses: Computational Statistics, Data Analysis in R, Data Mining, Bayesian Statistics, Data Science
+              </div>
+            </div>
+            
+            <div class="timeline-item">
+              <div class="timeline-date">2015–2020</div>
+              <div>
+                <strong>B.A. in Economics and Finance (First Class Honours)</strong>, University of Aberdeen<br>
+                GPA: 3.71/4.00<br>
+                Courses: Econometrics, Corporate Finance, Derivatives and Treasury Management, Empirical Methods in Finance
+              </div>
+            </div>
+          </div>
+        </section>
 
         <!-- Publications Section -->
-        <div class="section-wrapper right-layout">
-          <section id="publications" class="page__content section-content">
-            <header class="page__header">
-              <h1 class="page__title">Publications</h1>
-            </header>
-            
-            {% if site.author.googlescholar %}
-              <div class="wordwrap">You can also find my articles on <a href="{{site.author.googlescholar}}">my Google Scholar profile</a>.</div>
-            {% endif %}
+        <section id="publications" class="page__content">
+          <header class="page__header">
+            <h1 class="page__title">Publications</h1>
+          </header>
+          
+          {% if site.author.googlescholar %}
+            <div class="wordwrap">You can also find my articles on <a href="{{site.author.googlescholar}}">my Google Scholar profile</a>.</div>
+          {% endif %}
 
-            <!-- New style rendering if publication categories are defined -->
-            {% if site.publication_category %}
-              {% for category in site.publication_category  %}
-                {% assign title_shown = false %}
-                {% for post in site.publications reversed %}
-                  {% if post.category != category[0] %}
-                    {% continue %}
-                  {% endif %}
-                  {% unless title_shown %}
-                    <h2>{{ category[1].title }}</h2><hr />
-                    {% assign title_shown = true %}
-                  {% endunless %}
-                  <div class="publication-card">
-                    <h2><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h2>
-                    <div class="publication-meta">
-                      Published in <span class="publication-venue">{{ post.venue }}</span>, {{ post.date | date: "%Y" }}
-                    </div>
-                    {% if post.excerpt %}
-                      <p>{{ post.excerpt | markdownify | strip_html | truncate: 160 }}</p>
-                    {% endif %}
-                    <div class="download-links">
-                      {% if post.paperurl %}
-                        <a href="{{ post.paperurl }}">Download Paper</a>
-                      {% endif %}
-                      {% if post.slidesurl %}
-                        <a href="{{ post.slidesurl }}">Download Slides</a>
-                      {% endif %}
-                      {% if post.codeurl %}
-                        <a href="{{ post.codeurl }}">View Code</a>
-                      {% endif %}
-                    </div>
-                  </div>
-                {% endfor %}
-              {% endfor %}
-            {% else %}
-              <!-- Original style for compatibility -->
+          <!-- New style rendering if publication categories are defined -->
+          {% if site.publication_category %}
+            {% for category in site.publication_category  %}
+              {% assign title_shown = false %}
               {% for post in site.publications reversed %}
-                {% include archive-single.html %}
+                {% if post.category != category[0] %}
+                  {% continue %}
+                {% endif %}
+                {% unless title_shown %}
+                  <h2>{{ category[1].title }}</h2><hr />
+                  {% assign title_shown = true %}
+                {% endunless %}
+                <div class="publication-card">
+                  <h2><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h2>
+                  <div class="publication-meta">
+                    Published in <span class="publication-venue">{{ post.venue }}</span>, {{ post.date | date: "%Y" }}
+                  </div>
+                  {% if post.excerpt %}
+                    <p>{{ post.excerpt | markdownify | strip_html | truncate: 160 }}</p>
+                  {% endif %}
+                  <div class="download-links">
+                    {% if post.paperurl %}
+                      <a href="{{ post.paperurl }}">Download Paper</a>
+                    {% endif %}
+                    {% if post.slidesurl %}
+                      <a href="{{ post.slidesurl }}">Download Slides</a>
+                    {% endif %}
+                    {% if post.codeurl %}
+                      <a href="{{ post.codeurl }}">View Code</a>
+                    {% endif %}
+                  </div>
+                </div>
               {% endfor %}
-            {% endif %}
-          </section>
-        </div>
+            {% endfor %}
+          {% else %}
+            <!-- Original style for compatibility -->
+            {% for post in site.publications reversed %}
+              {% include archive-single.html %}
+            {% endfor %}
+          {% endif %}
+        </section>
 
         <!-- Teaching Section -->
         {% if site.teaching.size > 0 %}
-        <div class="section-wrapper left-layout">
-          <section id="teaching" class="page__content section-content">
-            <header class="page__header">
-              <h1 class="page__title">Teaching</h1>
-            </header>
-            
-            {% for post in site.teaching reversed %}
-              {% include archive-single.html %}
-            {% endfor %}
-          </section>
-        </div>
+        <section id="teaching" class="page__content">
+          <header class="page__header">
+            <h1 class="page__title">Teaching</h1>
+          </header>
+          
+          {% for post in site.teaching reversed %}
+            {% include archive-single.html %}
+          {% endfor %}
+        </section>
         {% endif %}
 
         <!-- CV Section -->
-        <div class="section-wrapper right-layout">
-          <section id="cv" class="page__content cv-section section-content">
-            <header class="page__header">
-              <h1 class="page__title">CV</h1>
-            </header>
-            
-            <div class="work-experience">
-              <h2>Work experience</h2>
-              <div class="work-item">
-                <div class="work-title">Spring 2024: Academic Pages Collaborator</div>
-                <ul>
-                  <li>GitHub University</li>
-                  <li>Duties includes: Updates and improvements to template</li>
-                  <li>Supervisor: The Users</li>
-                </ul>
-              </div>
-              
-              <div class="work-item">
-                <div class="work-title">Fall 2015: Research Assistant</div>
-                <ul>
-                  <li>GitHub University</li>
-                  <li>Duties included: Merging pull requests</li>
-                  <li>Supervisor: Professor Hub</li>
-                </ul>
-              </div>
-              
-              <div class="work-item">
-                <div class="work-title">Summer 2015: Research Assistant</div>
-                <ul>
-                  <li>GitHub University</li>
-                  <li>Duties included: Tagging issues</li>
-                  <li>Supervisor: Professor Git</li>
-                </ul>
-              </div>
+        <section id="cv" class="page__content cv-section">
+          <header class="page__header">
+            <h1 class="page__title">CV</h1>
+          </header>
+          
+          <div class="work-experience">
+            <h2>Work experience</h2>
+            <div class="work-item">
+              <div class="work-title">Spring 2024: Academic Pages Collaborator</div>
+              <ul>
+                <li>GitHub University</li>
+                <li>Duties includes: Updates and improvements to template</li>
+                <li>Supervisor: The Users</li>
+              </ul>
             </div>
+            
+            <div class="work-item">
+              <div class="work-title">Fall 2015: Research Assistant</div>
+              <ul>
+                <li>GitHub University</li>
+                <li>Duties included: Merging pull requests</li>
+                <li>Supervisor: Professor Hub</li>
+              </ul>
+            </div>
+            
+            <div class="work-item">
+              <div class="work-title">Summer 2015: Research Assistant</div>
+              <ul>
+                <li>GitHub University</li>
+                <li>Duties included: Tagging issues</li>
+                <li>Supervisor: Professor Git</li>
+              </ul>
+            </div>
+          </div>
 
-            <h2>Skills</h2>
-            <ul>
-              <li>Skill 1</li>
-              <li>Skill 2
-                <ul>
-                  <li>Sub-skill 2.1</li>
-                  <li>Sub-skill 2.2</li>
-                  <li>Sub-skill 2.3</li>
-                </ul>
-              </li>
-              <li>Skill 3</li>
-            </ul>
+          <h2>Skills</h2>
+          <ul>
+            <li>Skill 1</li>
+            <li>Skill 2
+              <ul>
+                <li>Sub-skill 2.1</li>
+                <li>Sub-skill 2.2</li>
+                <li>Sub-skill 2.3</li>
+              </ul>
+            </li>
+            <li>Skill 3</li>
+          </ul>
 
-            <h2>Service and leadership</h2>
-            <ul>
-              <li>Currently signed in to 43 different slack teams</li>
-            </ul>
-          </section>
-        </div>
+          <h2>Service and leadership</h2>
+          <ul>
+            <li>Currently signed in to 43 different slack teams</li>
+          </ul>
+        </section>
 
       </div>
     </div>
