@@ -235,15 +235,15 @@ layout: default
   display: flex;
   flex-direction: column;
   gap: 4em;
-  max-width: 1200px;
+  max-width: 1000px;
   margin: 0 auto;
-  padding: 0 2em 0 3em;
+  padding: 0 2em 0 5em;
 }
 
 .section-wrapper {
   display: flex;
   align-items: flex-start;
-  gap: 3em;
+  gap: 2.5em;
   min-height: 400px;
 }
 
@@ -261,7 +261,7 @@ layout: default
 }
 
 .section-visual {
-  flex: 0 0 300px;
+  flex: 0 0 350px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -312,8 +312,9 @@ section[id] {
 /* Responsive design for mobile */
 @media (max-width: 1024px) {
   .content-container {
-    padding: 0 1em 0 2em;
+    padding: 0 1em 0 3em;
     gap: 3em;
+    max-width: 900px;
   }
   
   .section-wrapper {
@@ -321,7 +322,7 @@ section[id] {
   }
   
   .section-visual {
-    flex: 0 0 200px;
+    flex: 0 0 250px;
     padding: 1.5em;
   }
   
@@ -455,8 +456,12 @@ a:hover {
             </div>
           </section>
           <div class="section-visual about-visual">
-            <div class="visual-icon"> </div>
-            
+            {% if site.author.avatar %}
+              <img src="{{ site.author.avatar | relative_url }}" alt="{{ site.author.name }}" 
+                   style="max-width: 100%; height: auto; border-radius: var(--global-border-radius); box-shadow: var(--global-shadow-color) 0px 4px 12px 0px;">
+            {% else %}
+              <div class="visual-icon">👤</div>
+            {% endif %}
           </div>
         </div>
 
@@ -497,7 +502,7 @@ a:hover {
             </div>
           </section>
           <div class="section-visual education-visual">
-            <div class="visual-icon"> </div>
+            <div class="visual-icon">🎓</div>
           </div>
         </div>
 
@@ -554,7 +559,7 @@ a:hover {
             {% endif %}
           </section>
           <div class="section-visual publications-visual">
-            <div class="visual-icon"> </div>
+            <div class="visual-icon">📚</div>
           </div>
         </div>
 
@@ -571,7 +576,7 @@ a:hover {
             {% endfor %}
           </section>
           <div class="section-visual teaching-visual">
-            <div class="visual-icon"> </div>
+            <div class="visual-icon">👨‍🏫</div>
           </div>
         </div>
         {% endif %}
@@ -632,7 +637,7 @@ a:hover {
             </ul>
           </section>
           <div class="section-visual cv-visual">
-            <div class="visual-icon"> </div>
+            <div class="visual-icon">📄</div>
           </div>
         </div>
 
