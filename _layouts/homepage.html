@@ -5,29 +5,7 @@ layout: default
 {% include base_path %}
 
 <style>
-/* Modern theme fallbacks */
-:root {
-  --global-primary-color: #2563eb;
-  --global-accent-color: #0891b2;
-  --global-secondary-color: #6366f1;
-  --global-bg-card-color: #ffffff;
-  --global-bg-light-color: #f8fafc;
-  --global-bg-lighter-color: #f1f5f9;
-  --global-border-color: #e2e8f0;
-  --global-border-color-light: #f1f5f9;
-  --global-text-color: #1e293b;
-  --global-text-color-light: #64748b;
-  --global-text-color-lighter: #94a3b8;
-  --global-shadow-color: rgba(15, 23, 42, 0.08);
-  --global-shadow-color-hover: rgba(15, 23, 42, 0.12);
-  --global-border-radius: 8px;
-  --global-border-radius-sm: 6px;
-  --global-border-radius-lg: 12px;
-  --global-transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  --global-base-color: #2563eb;
-  --global-link-color: #2563eb;
-  --global-link-color-hover: #1d4ed8;
-}
+/* Homepage specific styling - relies on theme CSS variables */
 
 .page__content {
   margin-bottom: 3em;
@@ -403,7 +381,7 @@ a:hover {
 }
 
 .download-links a:hover {
-  background-color: var(--global-link-color-hover, #1d4ed8);
+  background-color: var(--global-link-color-hover);
   transform: translateY(-2px);
   box-shadow: var(--global-shadow-color) 0px 4px 8px 0px;
   color: white !important;
@@ -425,11 +403,10 @@ a:hover {
 }
 
 .btn:hover {
-  background-color: var(--global-link-color-hover, #1d4ed8);
+  background-color: var(--global-link-color-hover);
   color: white !important;
   transform: translateY(-1px);
   box-shadow: var(--global-shadow-color) 0px 4px 8px 0px;
-  
 }
 </style>
 

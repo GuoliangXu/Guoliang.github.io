@@ -86,7 +86,7 @@ select {
   box-shadow: $box-shadow;
 
   &:hover {
-    border-color: var(--global-base-color);
+    border-color: var(--global-primary-color);
   }
 }
 
