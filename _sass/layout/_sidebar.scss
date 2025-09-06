@@ -175,26 +175,72 @@
   @include breakpoint($large) {
     display: block;
   }
+
+  button {
+    margin-bottom: 0;
+
+    @include breakpoint($large) {
+      display: none;
+    }
+  }
 }
 
 .author__urls {
-  display: block;
-  position: relative;
-  margin: 0;
-  padding: 0;
+  display: none;
+  position: absolute;
+  right: 0;
+  margin-top: 15px;
+  padding: 10px;
   list-style-type: none;
-  border: 0;
-  background: transparent;
-  box-shadow: none;
+  border: 1px solid var(--global-border-color);
+  border-radius: $border-radius;
+  background: var(--global-bg-color);
+  z-index: -1;
+  box-shadow: 0 0 10px rgba(#000, 0.25);
   cursor: default;
 
-  @media (max-width: 1023px) {
-    margin-top: 15px;
-    padding: 10px;
-    border: 1px solid var(--global-border-color);
-    border-radius: $border-radius;
-    background: var(--global-bg-color);
-    box-shadow: 0 0 10px rgba(#000, 0.25);
+  @include breakpoint($large) {
+    display: block;
+    position: relative;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    box-shadow: none;
+  }
+
+  &:before {
+    display: block;
+    content: "";
+    position: absolute;
+    top: -11px;
+    left: calc(50% - 10px);
+    width: 0;
+    border-style: solid;
+    border-width: 0 10px 10px;
+    border-color: var(--global-border-color) transparent;
+    z-index: 0;
+
+    @include breakpoint($large) {
+      display: none;
+    }
+  }
+
+  &:after {
+    display: block;
+    content: "";
+    position: absolute;
+    top: -10px;
+    left: calc(50% - 10px);
+    width: 0;
+    border-style: solid;
+    border-width: 0 10px 10px;
+    border-color: #fff transparent;
+    z-index: 1;
+
+    @include breakpoint($large) {
+      display: none;
+    }
   }
 
   li {
