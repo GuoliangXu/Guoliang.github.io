@@ -1,5 +1,7 @@
 ---
-layout: default
+layout: single
+classes: wide
+sidebar: false
 ---
 
 {% include base_path %}
@@ -479,6 +481,13 @@ section[id] {
 .sidebar {
   display: none;
 }
+  /* 不要让导航 a 有 transform，避免 Greedy-Nav 误判收缩 */
+.masthead a:hover,
+.greedy-nav a:hover { transform: none !important; }
+
+/* 视觉区给个下限，避免被文字区挤没 */
+.section-visual { min-width: 300px; }  /* 已有就保留/提高到 300–320px 更稳 */
+ 
 </style>
 
 <div id="main" role="main">
