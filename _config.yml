@@ -14,7 +14,7 @@ title_separator          : "-"
 name                     : &name "Guoliang Xu"
 description              : &description "personal description"
 url                      : https://GuoliangXu.github.io # the base hostname & protocol for your site e.g. "https://[your GitHub username].github.io"
-baseurl                  : "" # the subpath of your site, e.g. "/blog"
+baseurl                  : "/Guoliang.github.io" # the subpath of your site, e.g. "/blog"
 repository               : "GuoliangXu/Guoliang.github.io"
 
 remote_theme: academicpages/academicpages.github.io
