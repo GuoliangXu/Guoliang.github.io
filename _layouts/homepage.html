@@ -490,7 +490,20 @@ section[id] {
   padding-left: 0 !important;
   padding-right: 0 !important;
 }
+  
+/* 精准地让导航和页面的主容器变宽，保持一致 */
+.masthead__inner-wrap,
+.page__inner-wrap {
+  max-width: min(96vw, 1600px) !important;
+}
 
+/* 移除 .content-container 的水平内边距，让内容可以触及容器边缘 */
+.content-container {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+  
 /* 给导航和正文之间单独留间距 */
 .masthead + .initial-content,
 .masthead + #main,
