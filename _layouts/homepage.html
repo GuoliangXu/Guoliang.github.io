@@ -235,7 +235,7 @@ layout: default
   display: flex;
   flex-direction: column;
   gap: 4em;
-  max-width: 1500px;
+  max-width: 100%;
   margin: 0 auto;
   padding: 0 2em;
 }
@@ -263,6 +263,7 @@ layout: default
 
 .section-visual {
   flex: 0 1 400px;
+  min-width: 300px; 
   display: flex;
   align-items: center;
   justify-content: center;
@@ -404,15 +405,17 @@ section[id] {
 }
 
 /* Enhanced link styling */
-a {
+
+
+/* 仅作用于正文的链接，避免影响站点导航 */
+.page__content a {
   transition: var(--global-transition);
 }
-
-a:hover {
+.page__content a:hover {
   transform: translateY(-1px);
 }
 
-/* Button styling for download links */
+  /* Button styling for download links */
 .download-links a {
   display: inline-block;
   padding: 0.4em 0.8em;
@@ -484,7 +487,7 @@ a:hover {
             </div>
           </section>
           <div class="section-visual about-visual">
-            <img src="/images/profile2.png" alt="Guoliang Xu" class="visual-photo">
+            <img src="{{ '/images/profile2.png' | relative_url }}" alt="Guoliang Xu" class="visual-photo">
           </div>
         </div>
 
