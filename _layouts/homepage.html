@@ -477,6 +477,20 @@ section[id] {
     padding: 1em;
   }
 }
+/* 把最外层 wrap/container 的宽度限制去掉 */
+.layout--single .wrap,
+.layout--single .container {
+  max-width: none !important;
+  width: 100% !important;
+  margin: 0 auto !important;
+  padding: 0 !important;
+}
+
+/* 确保正文容器不再限制 */
+.layout--single .page__content {
+  max-width: none !important;
+  width: 100% !important;
+}
 
 /* 去掉正文最上面的标题，避免和导航栏重复 */
 .page__title {
