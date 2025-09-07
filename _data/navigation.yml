@@ -8,16 +8,16 @@
 
 main:
   - title: "About"
-    url: /#about
+    url: "#about"
 
   - title: "Education"
-    url: /#education
+    url: "#education"
 
   - title: "Publications"
-    url: /#publications
+    url: "#publications"
 
   - title: "Teaching"
-    url: /#teaching
+    url: "#teaching"
     
   - title: "CV"
-    url: /#cv
+    url: "#cv"
