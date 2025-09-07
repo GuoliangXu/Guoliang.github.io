@@ -479,23 +479,59 @@ section[id] {
 }
 
 /* 把最外层 wrap/container 的宽度限制去掉 */
-.layout--single .wrap,
-.layout--single .container,
-.layout--single .initial-content,
-.layout--single .page__content {
-  max-width: none !important;
-  width: 100% !important;
-  margin: 0 auto !important;
-  /* ⚠️ 不要把 padding 全部清零，否则上下间距没了 */
-  padding-left: 0 !important;
-  padding-right: 0 !important;
-}
-  
-/* 精准地让导航和页面的主容器变宽，保持一致 */
+/* =================================================================== */
+/* 1. 全局容器宽度 (Global Container Width)
+/* =================================================================== */
+
+/* 精准地让导航和页面的主容器变宽，这是控制页面宽度的唯一规则 */
 .masthead__inner-wrap,
 .page__inner-wrap {
   max-width: min(96vw, 1600px) !important;
 }
+
+
+/* =================================================================== */
+/* 2. 导航栏样式 (Navigation Bar Styles)
+/* =================================================================== */
+
+/* 让导航栏内部使用 Flexbox 布局以自定义间距 */
+.greedy-nav {
+  display: flex !important;
+  align-items: center !important;
+}
+
+.greedy-nav .visible-links {
+  display: flex !important;
+  gap: clamp(1rem, 2vw, 1.5rem) !important; /* 动态链接间距 */
+  list-style: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* 强制隐藏“更多”按钮，注意这会禁用响应式折叠功能 */
+.greedy-nav .hidden-links {
+  display: none !important;
+}
+
+/* 避免鼠标悬浮时链接的 transform 动画影响布局计算 */
+.masthead a:hover,
+.greedy-nav a:hover {
+  transform: none !important;
+}
+
+/* 限制网站标题的宽度，防止过长时挤压导航链接 */
+.masthead .site-title {
+  max-width: 14rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  flex-shrink: 0; /* 防止标题被压缩 */
+}
+
+
+/* =================================================================== */
+/* 3. 页面布局微调 (Page Layout Tweaks)
+/* =================================================================== */
 
 /* 移除 .content-container 的水平内边距，让内容可以触及容器边缘 */
 .content-container {
@@ -503,49 +539,18 @@ section[id] {
   padding-right: 0;
 }
 
-  
-/* 给导航和正文之间单独留间距 */
+/* 在导航栏和下方的主内容区之间添加垂直间距 */
 .masthead + .initial-content,
-.masthead + #main,
-.masthead + .page {
-  margin-top: 2.5rem !important; /* 自己调，比如 32px */
+.masthead + #main {
+  margin-top: 2.5rem !important;
 }
 
-  
-
-/* 去掉正文最上面的标题，避免和导航栏重复 */
+/* 隐藏页面顶部由主题自动生成的主标题 */
 .page__title {
   display: none !important;
 }
-/* ====== 修复导航样式 ====== */
-/* 让导航容器与正文同宽，并与正文留出竖向间距 */
-
-.masthead__inner-wrap{
-  max-width: min(96vw, 1600px) !important;
-  margin-inline: auto !important;
-  padding-inline: 2.5rem !important;
-}
-.greedy-nav{ 
-  display: flex !important; 
-  align-items: center !important; 
-}
-.greedy-nav .visible-links{ 
-  display: flex !important; 
-  gap: clamp(.75rem, 2vw, 1.5rem) !important;
-  list-style: none !important; 
-  margin: 0 !important; 
-  padding: 0 !important;
-}
-.greedy-nav .visible-links > li{ display: inline-flex !important; align-items: center !important; }
-.greedy-nav .hidden-links{ display: none !important; }
-.masthead a:hover,
-.greedy-nav a:hover{ transform: none !important; }
-.masthead .site-title{
-  max-width: 14rem;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
+  
+  
 
 </style>
 
