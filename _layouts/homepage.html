@@ -331,7 +331,121 @@ section[id] {
   scroll-margin-top: 80px;
 }
 
-/* Responsive design for mobile */
+/* Enhanced link styling */
+.page__content a {
+  transition: var(--global-transition);
+}
+.page__content a:hover {
+  transform: translateY(-1px);
+}
+
+/* Button styling for download links */
+.download-links a {
+  display: inline-block;
+  padding: 0.4em 0.8em;
+  margin: 0.2em;
+  background-color: var(--global-primary-color);
+  color: white !important;
+  text-decoration: none;
+  border-radius: var(--global-border-radius-sm);
+  font-size: 0.85em;
+  font-weight: 500;
+  transition: var(--global-transition);
+  border: none;
+  cursor: pointer;
+}
+
+.download-links a:hover {
+  background-color: var(--global-link-color-hover, #1d4ed8);
+  transform: translateY(-2px);
+  box-shadow: var(--global-shadow-color) 0px 4px 8px 0px;
+  color: white !important;
+}
+
+/* Fix any button display issues */
+.btn {
+  display: inline-block !important;
+  padding: 0.5em 1em;
+  background-color: var(--global-primary-color);
+  color: white !important;
+  text-decoration: none;
+  border-radius: var(--global-border-radius);
+  font-weight: 600;
+  transition: var(--global-transition);
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.btn:hover {
+  background-color: var(--global-link-color-hover, #1d4ed8);
+  color: white !important;
+  transform: translateY(-1px);
+  box-shadow: var(--global-shadow-color) 0px 4px 8px 0px;
+}
+
+/* === LAYOUT AND NAVIGATION FIXES === */
+
+/* Container width consistency - unified approach */
+.layout--single .masthead__inner-wrap,
+.layout--single .initial-content,
+.layout--single .page__inner-wrap {
+  max-width: min(96vw, 1600px) !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  padding-inline: 2rem !important;
+}
+
+/* Content area full width */
+.layout--single .page__content {
+  max-width: none !important;
+  width: 100% !important;
+}
+
+/* Ensure sidebar is completely disabled */
+.layout--single .page__sidebar,
+.layout--single .sidebar { 
+  display: none !important; 
+}
+
+/* Navigation fixes - prevent transform interference with Greedy-Nav */
+.masthead a:hover,
+.greedy-nav a:hover { 
+  transform: none !important; 
+}
+
+/* Greedy-Nav fallback - ensure horizontal layout */
+.greedy-nav .visible-links { 
+  display: flex !important; 
+  gap: clamp(.75rem, 2vw, 1.5rem) !important;
+  list-style: none !important; 
+  margin: 0 !important; 
+  padding: 0 !important;
+}
+
+.greedy-nav .visible-links > li { 
+  display: inline-flex !important; 
+  align-items: center; 
+}
+
+.greedy-nav .hidden-links { 
+  display: none !important; 
+}
+
+/* Section layout optimization */
+.section-content {
+  flex: 1 1 auto; 
+  min-width: clamp(36ch, 45%, 72ch);
+}
+
+.section-visual {
+  flex: 0 1 400px; 
+  min-width: 300px;
+}
+
+/* === RESPONSIVE DESIGN === */
+
+/* Tablet layout */
 @media (max-width: 1024px) {
   .content-container {
     padding: 0 1.5em;
@@ -340,7 +454,7 @@ section[id] {
   }
   
   .section-wrapper {
-    gap: 2em;
+    gap: clamp(1rem, 3vw, 2rem);
   }
   
   .section-visual {
@@ -358,6 +472,7 @@ section[id] {
   }
 }
 
+/* Mobile layout */
 @media (max-width: 768px) {
   .page__content {
     padding: 1.5em;
@@ -408,206 +523,9 @@ section[id] {
   }
 }
 
-/* Enhanced link styling */
-
-
-/* 仅作用于正文的链接，避免影响站点导航 */
-.page__content a {
-  transition: var(--global-transition);
-}
-.page__content a:hover {
-  transform: translateY(-1px);
-}
-
-  /* Button styling for download links */
-.download-links a {
-  display: inline-block;
-  padding: 0.4em 0.8em;
-  margin: 0.2em;
-  background-color: var(--global-primary-color);
-  color: white !important;
-  text-decoration: none;
-  border-radius: var(--global-border-radius-sm);
-  font-size: 0.85em;
-  font-weight: 500;
-  transition: var(--global-transition);
-  border: none;
-  cursor: pointer;
-}
-
-.download-links a:hover {
-  background-color: var(--global-link-color-hover, #1d4ed8);
-  transform: translateY(-2px);
-  box-shadow: var(--global-shadow-color) 0px 4px 8px 0px;
-  color: white !important;
-}
-
-/* Fix any button display issues */
-.btn {
-  display: inline-block !important;
-  padding: 0.5em 1em;
-  background-color: var(--global-primary-color);
-  color: white !important;
-  text-decoration: none;
-  border-radius: var(--global-border-radius);
-  font-weight: 600;
-  transition: var(--global-transition);
-  border: none;
-  cursor: pointer;
-  font-family: inherit;
-}
-
-.btn:hover {
-  background-color: var(--global-link-color-hover, #1d4ed8);
-  color: white !important;
-  transform: translateY(-1px);
-  box-shadow: var(--global-shadow-color) 0px 4px 8px 0px;
-  
-}
-
-  /* 放宽 Minimal Mistakes 外层容器 */
-.page .page__inner-wrap {
-  max-width: min(96vw, 1600px); /* 需要多宽调这里 */
-  margin-left: auto;
-  margin-right: auto;
-}
-
-/* 让正文块铺满外层容器 */
-.page__content {
-  max-width: none;
-  width: 100%;
-}
-
-/* 如主题意外注入了侧栏，直接禁用 */
-.page__sidebar,
-.sidebar {
-  display: none;
-}
-  /* 不要让导航 a 有 transform，避免 Greedy-Nav 误判收缩 */
-.masthead a:hover,
-.greedy-nav a:hover { transform: none !important; }
-
-/* 视觉区给个下限，避免被文字区挤没 */
-.section-visual { min-width: 300px; }  /* 已有就保留/提高到 300–320px 更稳 */
- /* 让导航容器也变宽，和正文一致 */
-.masthead__inner-wrap {
-  max-width: min(96vw, 1600px);
-  margin-inline: auto;
-  padding-inline: 2rem;
-}
-
-/* 导航链接不要用 transform，避免 Greedy-Nav 误判为放不下而折叠 */
-.masthead a:hover,
-.greedy-nav a:hover {
-  transform: none !important;
-}
-/* === 1) 统一放宽：导航容器 + 正文外层（仅本页） === */
-.layout--single .masthead__inner-wrap,
-.layout--single .initial-content,
-.layout--single .page__inner-wrap {
-  max-width: min(96vw, 1600px) !important;
-  margin-left: auto !important;
-  margin-right: auto !important;
-  padding-inline: 2rem !important; /* 视口边缘留点内边距 */
-}
-
-/* 正文内容块不要再自限宽度 */
-.layout--single .page__content {
-  max-width: none !important;
-  width: 100% !important;
-}
-
-/* 保险：若仍被注入侧栏，直接关闭 */
-.layout--single .page__sidebar,
-.layout--single .sidebar { display: none !important; }
-
-/* 避免 Greedy-Nav 因 hover transform 误判折叠 */
-.masthead a:hover,
-.greedy-nav a:hover { transform: none !important; }
-
-/* === 2) 两栏配平，避免视觉区被挤没 === */
-.section-content { flex: 1 1 auto; min-width: clamp(36ch, 42%, 72ch); }
-.section-visual  { flex: 0 1 400px; min-width: 300px; }
-
-@media (max-width: 1024px) {
-  .section-wrapper { gap: clamp(1rem, 3vw, 2em); }
-  /* 关键：别再固定死宽度，允许缩到 280px，但有保底 */
-  .section-visual  { flex: 0 1 28rem; min-width: 280px; }
-}
-
-/* 图片抗压更稳 */
-.visual-photo { display: block; width: 100%; height: auto; max-height: 380px; object-fit: cover; }
-  
-/* 让导航容器与正文等宽（强覆盖） */
-.masthead__inner-wrap {
-  max-width: min(96vw, 1600px) !important;
-  margin-inline: auto !important;
-  padding-inline: 2rem !important;
-}
-/* 避免 hover 位移干扰 Greedy-Nav 的“能否放下”测量 */
-.masthead a:hover, .greedy-nav a:hover { transform: none !important; }
-
-/* 若主题 JS 未就绪的兜底：把可见菜单强制横排、去项目符号 */
-.greedy-nav .visible-links { 
-  display: flex !important; gap: clamp(.75rem,2vw,1.5rem) !important;
-  list-style: none !important; margin: 0 !important; padding: 0 !important;
-}
-.greedy-nav .hidden-links { display: none !important; }
-
-  /* 导航容器与正文同宽 */
-.masthead__inner-wrap{
-  max-width: min(96vw, 1600px) !important;
-  margin-inline: auto !important;
-  padding-inline: 2rem !important;
-}
-
-/* Greedy-Nav 的最小兜底：横排、去圆点、禁用折叠 */
-.greedy-nav .visible-links{
-  display:flex !important;
-  gap: clamp(.75rem,2vw,1.5rem) !important;
-  list-style:none !important;
-  margin:0 !important;
-  padding:0 !important;
-}
-.greedy-nav .visible-links > li{ display:inline-flex !important; align-items:center; }
-.greedy-nav .hidden-links{ display:none !important; }
-
-/* 避免 hover 位移干扰 Greedy-Nav 的“能否放下”测量 */
-.masthead a:hover, .greedy-nav a:hover{ transform:none !important; }
-
-  /* 两列严格 50/50，且都允许收缩；min-width:0 可避免内容撑破布局 */
-.section-wrapper{ display:flex; align-items:flex-start; gap: 2rem; }
-.section-content,
-.section-visual{
-  flex: 1 1 0 !important;   /* 核心：各占 50%，按可用空间平均分配 */
-  min-width: 0 !important;  /* 允许文本/图片在容器内换行收缩 */
-}
-
-/* 视觉区基本外观保留 */
-.section-visual{
-  display:flex; align-items:center; justify-content:center;
-  background: linear-gradient(135deg, var(--global-bg-lighter-color), var(--global-bg-light-color));
-  border-radius: var(--global-border-radius-lg);
-  padding: 1em;
-  box-shadow: var(--global-shadow-color) 0px 2px 8px 0px;
-  border: 1px solid var(--global-border-color-light);
-}
-
-/* 图片自适应不溢出 */
-.visual-photo{ display:block; max-width:100%; height:auto; object-fit:cover; }
-
-/* 中小屏改为上下排，避免过窄 */
-@media (max-width: 900px){
-  .section-wrapper{ flex-direction:column !important; gap:1.25rem; }
-  .section-content, .section-visual{ flex: none !important; width:100% !important; }
-}
-  
 </style>
 
 <div id="main" role="main">
- 
- 
-
   <article class="page" itemscope itemtype="http://schema.org/CreativeWork">
     <div class="page__inner-wrap">
       
@@ -670,7 +588,7 @@ section[id] {
             </div>
           </section>
           <div class="section-visual education-visual">
-            <div class="visual-icon"> </div>
+            <div class="visual-icon">🎓</div>
           </div>
         </div>
 
@@ -727,7 +645,7 @@ section[id] {
             {% endif %}
           </section>
           <div class="section-visual publications-visual">
-            <div class="visual-icon"> </div>
+            <div class="visual-icon">📄</div>
           </div>
         </div>
 
@@ -744,7 +662,7 @@ section[id] {
             {% endfor %}
           </section>
           <div class="section-visual teaching-visual">
-            <div class="visual-icon"> </div>
+            <div class="visual-icon">👨‍🏫</div>
           </div>
         </div>
         {% endif %}
@@ -805,7 +723,7 @@ section[id] {
             </ul>
           </section>
           <div class="section-visual cv-visual">
-            <div class="visual-icon"> </div>
+            <div class="visual-icon">📋</div>
           </div>
         </div>
 
