@@ -385,53 +385,7 @@ section[id] {
   box-shadow: var(--global-shadow-color) 0px 4px 8px 0px;
 }
 
-/* === LAYOUT AND NAVIGATION FIXES === */
 
-/* Container width consistency - unified approach */
-.layout--single .masthead__inner-wrap,
-.layout--single .initial-content,
-.layout--single .page__inner-wrap {
-  max-width: min(96vw, 1600px) !important;
-  margin-left: auto !important;
-  margin-right: auto !important;
-  padding-inline: 2rem !important;
-}
-
-/* Content area full width */
-.layout--single .page__content {
-  max-width: none !important;
-  width: 100% !important;
-}
-
-/* Ensure sidebar is completely disabled */
-.layout--single .page__sidebar,
-.layout--single .sidebar { 
-  display: none !important; 
-}
-
-/* Navigation fixes - prevent transform interference with Greedy-Nav */
-.masthead a:hover,
-.greedy-nav a:hover { 
-  transform: none !important; 
-}
-
-/* Greedy-Nav fallback - ensure horizontal layout */
-.greedy-nav .visible-links { 
-  display: flex !important; 
-  gap: clamp(.75rem, 2vw, 1.5rem) !important;
-  list-style: none !important; 
-  margin: 0 !important; 
-  padding: 0 !important;
-}
-
-.greedy-nav .visible-links > li { 
-  display: inline-flex !important; 
-  align-items: center; 
-}
-
-.greedy-nav .hidden-links { 
-  display: none !important; 
-}
 
 /* Section layout optimization */
 .section-content {
@@ -523,33 +477,37 @@ section[id] {
     padding: 1em;
   }
 }
-/* 让导航容器与正文同宽，并与正文留出竖向间距 */
-.layout--single .masthead__inner-wrap{
+
+/* 去掉正文最上面的标题，避免和导航栏重复 */
+.page__title {
+  display: none !important;
+}
+/* ====== 修复导航样式 ====== */
+.masthead__inner-wrap{
   max-width: min(96vw, 1600px) !important;
   margin-inline: auto !important;
   padding-inline: 2rem !important;
 }
-.masthead + .initial-content,
-.masthead + #main,
-.masthead + .page{
-  margin-top: 28px !important;   /* 关键：给导航和正文预留空间 */
+.greedy-nav{ 
+  display: flex !important; 
+  align-items: center !important; 
 }
-
-/* Greedy-Nav 兜底：横排显示 & 禁止 hover 位移干扰其测量 */
-.greedy-nav .visible-links{
-  display: flex !important;
+.greedy-nav .visible-links{ 
+  display: flex !important; 
   gap: clamp(.75rem, 2vw, 1.5rem) !important;
-  list-style: none !important;
-  margin: 0 !important;
+  list-style: none !important; 
+  margin: 0 !important; 
   padding: 0 !important;
 }
+.greedy-nav .visible-links > li{ display: inline-flex !important; align-items: center !important; }
 .greedy-nav .hidden-links{ display: none !important; }
 .masthead a:hover,
 .greedy-nav a:hover{ transform: none !important; }
-  
-/* 去掉正文最上面的标题，避免和导航栏重复 */
-.page__title {
-  display: none !important;
+.masthead .site-title{
+  max-width: 14rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 </style>
