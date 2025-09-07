@@ -344,7 +344,8 @@ section[id] {
   }
   
   .section-visual {
-    flex: 0 1 280px;
+    flex: 0 1 28rem; 
+    min-width: 280px;
     padding: 1.5em;
   }
   
@@ -500,6 +501,42 @@ section[id] {
 .greedy-nav a:hover {
   transform: none !important;
 }
+/* === 1) 统一放宽：导航容器 + 正文外层（仅本页） === */
+.layout--single .masthead__inner-wrap,
+.layout--single .initial-content,
+.layout--single .page__inner-wrap {
+  max-width: min(96vw, 1600px) !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  padding-inline: 2rem !important; /* 视口边缘留点内边距 */
+}
+
+/* 正文内容块不要再自限宽度 */
+.layout--single .page__content {
+  max-width: none !important;
+  width: 100% !important;
+}
+
+/* 保险：若仍被注入侧栏，直接关闭 */
+.layout--single .page__sidebar,
+.layout--single .sidebar { display: none !important; }
+
+/* 避免 Greedy-Nav 因 hover transform 误判折叠 */
+.masthead a:hover,
+.greedy-nav a:hover { transform: none !important; }
+
+/* === 2) 两栏配平，避免视觉区被挤没 === */
+.section-content { flex: 1 1 auto; min-width: clamp(36ch, 42%, 72ch); }
+.section-visual  { flex: 0 1 400px; min-width: 300px; }
+
+@media (max-width: 1024px) {
+  .section-wrapper { gap: clamp(1rem, 3vw, 2em); }
+  /* 关键：别再固定死宽度，允许缩到 280px，但有保底 */
+  .section-visual  { flex: 0 1 28rem; min-width: 280px; }
+}
+
+/* 图片抗压更稳 */
+.visual-photo { display: block; width: 100%; height: auto; max-height: 380px; object-fit: cover; }
 
 </style>
 
