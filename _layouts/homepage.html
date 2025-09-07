@@ -477,6 +477,7 @@ section[id] {
     padding: 1em;
   }
 }
+
 /* 把最外层 wrap/container 的宽度限制去掉 */
 .layout--single .wrap,
 .layout--single .container,
@@ -485,8 +486,18 @@ section[id] {
   max-width: none !important;
   width: 100% !important;
   margin: 0 auto !important;
-  padding: 0 !important;
+  /* ⚠️ 不要把 padding 全部清零，否则上下间距没了 */
+  padding-left: 0 !important;
+  padding-right: 0 !important;
 }
+
+/* 给导航和正文之间单独留间距 */
+.masthead + .initial-content,
+.masthead + #main,
+.masthead + .page {
+  margin-top: 2rem !important; /* 自己调，比如 32px */
+}
+
   
 
 /* 去掉正文最上面的标题，避免和导航栏重复 */
