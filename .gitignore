@@ -21,3 +21,4 @@ package-lock.json
 
 # Ignore development config file
 _config_dev.yml
+_layouts/homepage_backup.html
