@@ -330,6 +330,19 @@
   visibility: visible !important;
 }
 
+/* Override .hidden class for navigation items - higher specificity */
+.masthead .visible-links li.masthead__menu-item.hidden,
+.masthead .visible-links li.masthead__menu-item:not(.persist).hidden {
+  display: table-cell !important;
+  visibility: visible !important;
+}
+
+.masthead .visible-links li.masthead__menu-item.hidden a,
+.masthead .visible-links li.masthead__menu-item:not(.persist).hidden a {
+  display: block !important;
+  visibility: visible !important;
+}
+
 
 /*
    Navigation list
