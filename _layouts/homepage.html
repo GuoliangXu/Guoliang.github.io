@@ -259,14 +259,15 @@ author_profile: false
   flex-direction: row-reverse;
 }
   
-.section-content {
-  flex: 1;
-  min-width: clamp(40ch, 45%, 72ch); /* Prevent flex item overflow */
+/* 两列严格 50/50，且都允许收缩；min-width:0 防止把对方挤爆 */
+.section-content,
+.section-visual {
+  flex: 1 1 0 !important;   /* 各占 50% */
+  min-width: 0 !important;  /* 避免任何一列把另一列挤爆 */
 }
 
+/*2*/
 .section-visual {
-  flex: 0 1 400px;
-  min-width: 400px; 
   display: flex;
   align-items: center;
   justify-content: center;
@@ -275,8 +276,8 @@ author_profile: false
   padding: 1em;
   box-shadow: var(--global-shadow-color) 0px 2px 8px 0px;
   border: 1px solid var(--global-border-color-light);
-  transition: var(--global-transition);
 }
+
 
 
 .section-visual:hover {
