@@ -343,7 +343,7 @@ section[id] {
   }
   
   .section-visual {
-    flex: 0 0 280px;
+    flex: 0 1 280px;
     padding: 1.5em;
   }
   
@@ -487,7 +487,19 @@ section[id] {
 
 /* 视觉区给个下限，避免被文字区挤没 */
 .section-visual { min-width: 300px; }  /* 已有就保留/提高到 300–320px 更稳 */
- 
+ /* 让导航容器也变宽，和正文一致 */
+.masthead__inner-wrap {
+  max-width: min(96vw, 1600px);
+  margin-inline: auto;
+  padding-inline: 2rem;
+}
+
+/* 导航链接不要用 transform，避免 Greedy-Nav 误判为放不下而折叠 */
+.masthead a:hover,
+.greedy-nav a:hover {
+  transform: none !important;
+}
+
 </style>
 
 <div id="main" role="main">
