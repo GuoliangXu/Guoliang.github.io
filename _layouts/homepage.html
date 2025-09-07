@@ -259,10 +259,9 @@ author_profile: false
   flex-direction: row-reverse;
 }
   
-/* 两列严格 50/50，且都允许收缩；min-width:0 防止把对方挤爆 */
+/* 移除强制50/50分割，让内容区获得更多空间 */
 .section-content,
 .section-visual {
-  flex: 1 1 0 !important;   /* 各占 50% */
   min-width: 0 !important;  /* 避免任何一列把另一列挤爆 */
 }
 
@@ -387,15 +386,16 @@ section[id] {
 
 
 
-/* Section layout optimization */
+/* Section layout optimization - give content more space */
 .section-content {
-  flex: 1 1 auto; 
-  min-width: clamp(36ch, 45%, 72ch);
+  flex: 2 1 0;  /* 给内容区更多空间，比例约为2:1 */
+  min-width: clamp(320px, 60%, 800px);  /* 确保内容区有足够宽度 */
 }
 
 .section-visual {
-  flex: 0 1 400px; 
-  min-width: 300px;
+  flex: 1 1 280px;  /* 视觉区相对较小但有最小宽度 */
+  min-width: 280px;
+  max-width: 420px;  /* 限制最大宽度避免过大 */
 }
 
 /* === RESPONSIVE DESIGN === */
@@ -413,8 +413,9 @@ section[id] {
   }
   
   .section-visual {
-    flex: 0 1 28rem; 
-    min-width: 280px;
+    flex: 1 1 260px;  /* 保持一致的比例，但在平板上稍小 */
+    min-width: 260px;
+    max-width: 380px;
     padding: 1.5em;
   }
   
