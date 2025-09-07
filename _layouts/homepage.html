@@ -238,9 +238,9 @@ author_profile: false
   display: flex;
   flex-direction: column;
   gap: 4em;
-  max-width: 100%;
-  margin: 0 auto;
-  padding: 0 2em;
+  width: 100% !important;    /* 用 width:100% 而不是 max-width */
+  margin: 0 !important;      /* 去掉 auto 居中 */
+  padding: 0 2em;            /* 保留左右 padding 作为安全边距 */
 }
 
 .section-wrapper {
