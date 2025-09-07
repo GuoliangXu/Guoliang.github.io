@@ -245,7 +245,6 @@ layout: default
   align-items: flex-start;
   gap: 3em;
   min-height: 400px;
-  max-width: 1200px;
   box-sizing: border-box;
 }
 
@@ -259,11 +258,11 @@ layout: default
   
 .section-content {
   flex: 1;
-  min-width: 0; /* Prevent flex item overflow */
+  min-width: clamp(40ch, 45%, 72ch); /* Prevent flex item overflow */
 }
 
 .section-visual {
-  flex: 0 0 400px;
+  flex: 0 1 400px;
   display: flex;
   align-items: center;
   justify-content: center;
