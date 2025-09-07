@@ -1,7 +1,5 @@
 ---
-layout: single
-classes: wide
-sidebar: false
+layout: default
 ---
 
 {% include base_path %}
@@ -461,6 +459,25 @@ section[id] {
   transform: translateY(-1px);
   box-shadow: var(--global-shadow-color) 0px 4px 8px 0px;
   
+}
+
+  /* 放宽 Minimal Mistakes 外层容器 */
+.page .page__inner-wrap {
+  max-width: min(96vw, 1600px); /* 需要多宽调这里 */
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* 让正文块铺满外层容器 */
+.page__content {
+  max-width: none;
+  width: 100%;
+}
+
+/* 如主题意外注入了侧栏，直接禁用 */
+.page__sidebar,
+.sidebar {
+  display: none;
 }
 </style>
 
