@@ -537,7 +537,24 @@ section[id] {
 
 /* 图片抗压更稳 */
 .visual-photo { display: block; width: 100%; height: auto; max-height: 380px; object-fit: cover; }
+  
+/* 让导航容器与正文等宽（强覆盖） */
+.masthead__inner-wrap {
+  max-width: min(96vw, 1600px) !important;
+  margin-inline: auto !important;
+  padding-inline: 2rem !important;
+}
+/* 避免 hover 位移干扰 Greedy-Nav 的“能否放下”测量 */
+.masthead a:hover, .greedy-nav a:hover { transform: none !important; }
 
+/* 若主题 JS 未就绪的兜底：把可见菜单强制横排、去项目符号 */
+.greedy-nav .visible-links { 
+  display: flex !important; gap: clamp(.75rem,2vw,1.5rem) !important;
+  list-style: none !important; margin: 0 !important; padding: 0 !important;
+}
+.greedy-nav .hidden-links { display: none !important; }
+
+  
 </style>
 
 <div id="main" role="main">
