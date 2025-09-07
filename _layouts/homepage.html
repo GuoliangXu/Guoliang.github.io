@@ -479,18 +479,15 @@ section[id] {
 }
 /* 把最外层 wrap/container 的宽度限制去掉 */
 .layout--single .wrap,
-.layout--single .container {
+.layout--single .container,
+.layout--single .initial-content,
+.layout--single .page__content {
   max-width: none !important;
   width: 100% !important;
   margin: 0 auto !important;
   padding: 0 !important;
 }
-
-/* 确保正文容器不再限制 */
-.layout--single .page__content {
-  max-width: none !important;
-  width: 100% !important;
-}
+  
 
 /* 去掉正文最上面的标题，避免和导航栏重复 */
 .page__title {
@@ -498,15 +495,11 @@ section[id] {
 }
 /* ====== 修复导航样式 ====== */
 /* 让导航容器与正文同宽，并与正文留出竖向间距 */
-.layout--single .masthead__inner-wrap {
-  max-width: min(96vw, 1600px) !important;
-  margin-inline: auto !important;
-  padding-inline: 3rem !important;
-}
+
 .masthead__inner-wrap{
   max-width: min(96vw, 1600px) !important;
   margin-inline: auto !important;
-  padding-inline: 2rem !important;
+  padding-inline: 2.5rem !important;
 }
 .greedy-nav{ 
   display: flex !important; 
