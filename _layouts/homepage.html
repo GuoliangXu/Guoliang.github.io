@@ -32,7 +32,7 @@ author_profile: false
   --global-link-color-hover: #1d4ed8;
 }
 
-.page__content {
+.section-card {
   margin-bottom: 3em;
   padding: 2em;
   background-color: var(--global-bg-card-color);
@@ -42,12 +42,12 @@ author_profile: false
   transition: var(--global-transition);
 }
 
-.page__content:hover {
+.section-card:hover {
   box-shadow: var(--global-shadow-color-hover) 0px 4px 12px -2px, var(--global-shadow-color-hover) 0px 2px 8px -2px;
   transform: translateY(-2px);
 }
 
-.page__content:last-child {
+.section-card:last-child {
   border-bottom: none;
 }
 
@@ -551,7 +551,7 @@ section[id] {
         
         <!-- About Section -->
         <div class="section-wrapper right-layout">
-          <section id="about" class="page__content bio-section section-content">
+          <section id="about" class="section-card bio-section section-content">
             {{ content }}
             
             <div class="recent-news">
@@ -571,7 +571,7 @@ section[id] {
 
         <!-- Education Section -->
         <div class="section-wrapper left-layout">
-          <section id="education" class="page__content section-content">
+          <section id="education" class="section-card section-content">
             <header class="page__header">
               <h1 class="page__title">Education</h1>
             </header>
@@ -612,7 +612,7 @@ section[id] {
 
         <!-- Publications Section -->
         <div class="section-wrapper right-layout">
-          <section id="publications" class="page__content section-content">
+          <section id="publications" class="section-card section-content">
             <header class="page__header">
               <h1 class="page__title">Publications</h1>
             </header>
@@ -670,7 +670,7 @@ section[id] {
         <!-- Teaching Section -->
         {% if site.teaching.size > 0 %}
         <div class="section-wrapper left-layout">
-          <section id="teaching" class="page__content section-content">
+          <section id="teaching" class="section-card section-content">
             <header class="page__header">
               <h1 class="page__title">Teaching</h1>
             </header>
@@ -687,7 +687,7 @@ section[id] {
 
         <!-- CV Section -->
         <div class="section-wrapper right-layout">
-          <section id="cv" class="page__content cv-section section-content">
+          <section id="cv" class="section-card cv-section section-content">
             <header class="page__header">
               <h1 class="page__title">CV</h1>
             </header>
