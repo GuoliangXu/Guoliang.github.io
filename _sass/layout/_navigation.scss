@@ -343,33 +343,6 @@
   visibility: visible !important;
 }
 
-/* Prevent masthead navigation from displaying as sidebar/dropdown */
-.masthead .greedy-nav .visible-links {
-  display: table !important;
-  position: static !important;
-  margin: 0 !important;
-  padding: 0 !important;
-  border: none !important;
-  background: transparent !important;
-  box-shadow: none !important;
-}
-
-.masthead .greedy-nav .visible-links li.masthead__menu-item {
-  display: table-cell !important;
-  position: static !important;
-  vertical-align: middle !important;
-  white-space: nowrap !important;
-}
-
-/* Ensure the masthead navigation button is only for hidden items, not main nav */
-.masthead .greedy-nav button {
-  display: none !important;
-}
-
-.masthead .greedy-nav button:not(.hidden) {
-  display: block !important;
-}
-
 
 /*
    Navigation list
