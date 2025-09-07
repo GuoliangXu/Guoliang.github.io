@@ -56,7 +56,6 @@ author_profile: false
 .page__header {
   margin-bottom: 1.5em;
   padding-bottom: 0.75em;
-  border-bottom: 2px solid var(--global-primary-color);
 }
 
 .page__title {
@@ -67,7 +66,6 @@ author_profile: false
 }
 
 .timeline { 
-  border-left: 3px solid var(--global-primary-color); 
   margin: 20px 0; 
   padding-left: 20px; 
   position: relative;
@@ -99,16 +97,7 @@ author_profile: false
 }
 
 .timeline-item::before { 
-  content: ""; 
-  position: absolute; 
-  left: -11px; 
-  top: 20px; 
-  width: 12px; 
-  height: 12px; 
-  background-color: var(--global-primary-color); 
-  border-radius: 50%;
-  border: 3px solid var(--global-bg-card-color);
-  box-shadow: 0 0 0 3px var(--global-border-color-light);
+  display: none;
 }
 
 /* Enhanced section styling */
@@ -127,7 +116,6 @@ author_profile: false
   background-color: var(--global-bg-lighter-color);
   padding: 1.5em;
   border-radius: var(--global-border-radius);
-  border-left: 4px solid var(--global-accent-color);
   margin-top: 2em;
 }
 
@@ -163,13 +151,7 @@ author_profile: false
 }
 
 .publication-card::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 4px;
-  width: 100%;
-  background: linear-gradient(90deg, var(--global-primary-color), var(--global-accent-color));
+  display: none;
 }
 
 .publication-card:hover {
@@ -219,7 +201,6 @@ author_profile: false
   padding: 1.2em;
   background-color: var(--global-bg-light-color);
   border-radius: var(--global-border-radius);
-  border-left: 4px solid var(--global-secondary-color);
   margin-bottom: 1em;
   transition: var(--global-transition);
 }
@@ -240,9 +221,10 @@ author_profile: false
   display: flex;
   flex-direction: column;
   gap: 4em;
-  width: 100% !important;    /* 用 width:100% 而不是 max-width */
-  margin: 0 !important;      /* 去掉 auto 居中 */
-  padding: 0 2em;            /* 保留左右 padding 作为安全边距 */
+  width: 100% !important;
+  max-width: none !important;
+  margin: 0 !important;
+  padding: 0 1em;            /* 保留少量左右 padding 作为安全边距 */
 }
 
 .section-wrapper {
@@ -535,10 +517,12 @@ section[id] {
 /* 3. 页面布局微调 (Page Layout Tweaks)
 /* =================================================================== */
 
-/* 移除 .content-container 的水平内边距，让内容可以触及容器边缘 */
+/* 移除 .content-container 的水平内边距，让内容可以触及容器边缘，并确保全宽显示 */
 .content-container {
   padding-left: 0;
   padding-right: 0;
+  width: 100% !important;
+  max-width: none !important;
 }
 
 /* 在导航栏和下方的主内容区之间添加垂直间距 */
