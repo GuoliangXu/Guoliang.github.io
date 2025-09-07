@@ -2,7 +2,7 @@
 permalink: /
 title: "Guoliang Xu"
 layout: homepage
-author_profile: false
+author_profile: True
 classes: wide
 toc: false
 redirect_from: 
