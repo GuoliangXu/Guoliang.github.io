@@ -234,7 +234,7 @@ collections:
     permalink: /:collection/:path/
 
 
-# These settings control how pages and collections are included in the site
+# These settings control how pages and collections are included in the site ####author profolio改成了false
 defaults:
   # _posts
   - scope:
@@ -242,7 +242,7 @@ defaults:
       type: posts
     values:
       layout: single
-      author_profile: true
+      author_profile: false
       read_time: true
       comments: true
       share: true
