@@ -483,6 +483,12 @@ section[id] {
   display: none !important;
 }
 /* ====== 修复导航样式 ====== */
+/* 让导航容器与正文同宽，并与正文留出竖向间距 */
+.layout--single .masthead__inner-wrap {
+  max-width: min(96vw, 1600px) !important;
+  margin-inline: auto !important;
+  padding-inline: 3rem !important;
+}
 .masthead__inner-wrap{
   max-width: min(96vw, 1600px) !important;
   margin-inline: auto !important;
