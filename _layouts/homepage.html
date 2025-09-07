@@ -554,6 +554,54 @@ section[id] {
 }
 .greedy-nav .hidden-links { display: none !important; }
 
+  /* 导航容器与正文同宽 */
+.masthead__inner-wrap{
+  max-width: min(96vw, 1600px) !important;
+  margin-inline: auto !important;
+  padding-inline: 2rem !important;
+}
+
+/* Greedy-Nav 的最小兜底：横排、去圆点、禁用折叠 */
+.greedy-nav .visible-links{
+  display:flex !important;
+  gap: clamp(.75rem,2vw,1.5rem) !important;
+  list-style:none !important;
+  margin:0 !important;
+  padding:0 !important;
+}
+.greedy-nav .visible-links > li{ display:inline-flex !important; align-items:center; }
+.greedy-nav .hidden-links{ display:none !important; }
+
+/* 避免 hover 位移干扰 Greedy-Nav 的“能否放下”测量 */
+.masthead a:hover, .greedy-nav a:hover{ transform:none !important; }
+
+  /* 两列严格 50/50，且都允许收缩；min-width:0 可避免内容撑破布局 */
+.section-wrapper{ display:flex; align-items:flex-start; gap: 2rem; }
+.section-content,
+.section-visual{
+  flex: 1 1 0 !important;   /* 核心：各占 50%，按可用空间平均分配 */
+  min-width: 0 !important;  /* 允许文本/图片在容器内换行收缩 */
+}
+
+/* 视觉区基本外观保留 */
+.section-visual{
+  display:flex; align-items:center; justify-content:center;
+  background: linear-gradient(135deg, var(--global-bg-lighter-color), var(--global-bg-light-color));
+  border-radius: var(--global-border-radius-lg);
+  padding: 1em;
+  box-shadow: var(--global-shadow-color) 0px 2px 8px 0px;
+  border: 1px solid var(--global-border-color-light);
+}
+
+/* 图片自适应不溢出 */
+.visual-photo{ display:block; max-width:100%; height:auto; object-fit:cover; }
+
+/* 中小屏改为上下排，避免过窄 */
+@media (max-width: 900px){
+  .section-wrapper{ flex-direction:column !important; gap:1.25rem; }
+  .section-content, .section-visual{ flex: none !important; width:100% !important; }
+}
+
   
 </style>
 
