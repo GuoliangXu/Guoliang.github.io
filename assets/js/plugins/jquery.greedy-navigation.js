@@ -17,40 +17,28 @@ $(document).ready(function() {
   function updateNav() {
 
     var availableSpace = $btn.hasClass('hidden') ? $nav.width() : $nav.width() - $btn.width() - 30;
-    
-    // Be more conservative - ensure we have proper navigation space
-    var conservativeSpace = availableSpace * 0.8; // Use 80% of available space to be safe
 
     // The visible list is overflowing the nav
-    if ($vlinks.width() > conservativeSpace) {
+    if ($vlinks.width() > availableSpace) {
 
-      // Only move non-persistent items that are not critical navigation
-      while ($vlinks.width() > conservativeSpace && $vlinks.children("*:not(.persist):not(.masthead__menu-item--lg)").length > 0) {
+      while ($vlinks.width() > availableSpace && $vlinks.children("*:not(.persist)").length > 0) {
         // Record the width of the list
         breaks.push($vlinks.width());
 
-        // Move item to the hidden list - but skip the main title and essential nav items
-        var itemToMove = $vlinks.children("*:not(.persist):not(.masthead__menu-item--lg)").last();
-        if (itemToMove.length > 0) {
-          itemToMove.prependTo($hlinks);
-        } else {
-          break; // Stop if we can't find items to move
-        }
+        // Move item to the hidden list
+        $vlinks.children("*:not(.persist)").last().prependTo($hlinks);
 
         availableSpace = $btn.hasClass("hidden") ? $nav.width() : $nav.width() - $btn.width() - 30;
-        conservativeSpace = availableSpace * 0.8;
 
-        // Show the dropdown btn only if we actually moved items
-        if ($hlinks.children().length > 0) {
-          $btn.removeClass("hidden");
-        }
+        // Show the dropdown btn
+        $btn.removeClass("hidden");
       }
 
       // The visible list is not overflowing
     } else {
 
       // There is space for another item in the nav
-      while (breaks.length > 0 && conservativeSpace > breaks[breaks.length - 1]) {
+      while (breaks.length > 0 && availableSpace > breaks[breaks.length - 1]) {
         // Move the item to the visible list
         if ($vlinks_persist_tail.length > 0) {
           $hlinks.children().first().insertBefore($vlinks_persist_tail);
