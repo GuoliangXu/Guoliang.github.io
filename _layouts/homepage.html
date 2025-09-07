@@ -255,23 +255,22 @@ layout: default
   flex-direction: row-reverse;
 }
   
+.section-content {
+  flex: 1;
+  min-width: 0; /* Prevent flex item overflow */
+}
+
 .section-visual {
-  flex: 0 1 400px;
-  max-width: 100%;
-  min-width: 180px;
+  flex: 0 0 400px;
   display: flex;
   align-items: center;
   justify-content: center;
   background: linear-gradient(135deg, var(--global-bg-lighter-color), var(--global-bg-light-color));
   border-radius: var(--global-border-radius-lg);
-  padding: 2em;
+  padding: 1em;
   box-shadow: var(--global-shadow-color) 0px 2px 8px 0px;
   border: 1px solid var(--global-border-color-light);
   transition: var(--global-transition);
-}
-.section-content {
-  flex: 1;
-  min-width: 240px;
 }
 
 
