@@ -3,6 +3,8 @@ permalink: /
 title: "Guoliang Xu"
 layout: homepage
 author_profile: false
+classes: wide
+toc: false
 redirect_from: 
   - /about/
   - /about.html
