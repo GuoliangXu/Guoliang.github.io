@@ -28,7 +28,7 @@ layout: default
 
 .page__content {
   margin-bottom: 3em;
-  padding: 2em;
+  padding: 1em;
   background-color: var(--global-bg-card-color);
   border-radius: var(--global-border-radius-lg);
   box-shadow: var(--global-shadow-color) 0px 1px 3px 0px, var(--global-shadow-color) 0px 1px 2px 0px;
@@ -233,8 +233,14 @@ layout: default
   flex-direction: column;
   gap: 4em;
   max-width: clamp(1200px, 92vw, 1900px);
-  margin: 0 auto;
+  
+  margin-left: auto;   /* 靠右 */
+  margin-right: 0.75rem; 
   padding: 0 1em;
+}
+.page,
+.page__inner-wrap {
+  max-width: none;
 }
 
 .section-wrapper {
