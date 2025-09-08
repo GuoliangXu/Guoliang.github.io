@@ -232,9 +232,9 @@ layout: default
   display: flex;
   flex-direction: column;
   gap: 4em;
-  max-width: 1600px;
+  max-width: clamp(1200px, 92vw, 1900px);
   margin: 0 auto;
-  padding: 0 2em;
+  padding: 0 1em;
 }
 
 .section-wrapper {
@@ -258,7 +258,7 @@ layout: default
 }
 
 .section-visual {
-  flex: 0 0 var(--visual-gap, 40px); 
+  flex: 0 0 var(--visual-gap, 60px); 
   display: flex;
   align-items: center;
   justify-content: center;
