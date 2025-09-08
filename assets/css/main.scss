@@ -41,3 +41,15 @@
     "vendor/font-awesome/solid",
     "vendor/font-awesome/brands"
 ;
+/* Bio section: justify text */
+.bio-justify,
+.bio-justify p,
+.bio-justify li {
+  text-align: justify;
+  /* 英文单词自动断字；中英文混排对齐更自然 */
+  -webkit-hyphens: auto;
+  -ms-hyphens: auto;
+  hyphens: auto;
+  /* 对 CJK 文本更友好，可按需开启（英文不需要） */
+  /* text-justify: inter-ideograph; */
+}
