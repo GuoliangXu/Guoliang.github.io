@@ -203,10 +203,10 @@
   }
 
   .visible-links {
-    display: table !important;
+    display: table;
 
     li {
-      display: table-cell !important;
+      display: table-cell;
       vertical-align: middle;
 
       &:first-child {
@@ -317,17 +317,6 @@
       }
     }
   }
-}
-
-/* Ensure masthead navigation items are always visible */
-.masthead .visible-links li.masthead__menu-item {
-  display: table-cell !important;
-  visibility: visible !important;
-}
-
-.masthead .visible-links li.masthead__menu-item a {
-  display: block !important;
-  visibility: visible !important;
 }
 
 
