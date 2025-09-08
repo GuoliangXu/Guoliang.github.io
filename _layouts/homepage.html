@@ -232,7 +232,7 @@ layout: default
   display: flex;
   flex-direction: column;
   gap: 4em;
-  max-width: 1200px;
+  max-width: 1600px;
   margin: 0 auto;
   padding: 0 2em;
 }
@@ -258,7 +258,7 @@ layout: default
 }
 
 .section-visual {
-  flex: 0 0 300px;
+  flex: 0 1 250px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -411,7 +411,7 @@ a:hover {
       <div class="content-container">
         
         <!-- About Section -->
-        <div class="section-wrapper left-layout">
+        <div class="section-wrapper right-layout">
           <section id="about" class="page__content bio-section section-content">
             {{ content }}
             
@@ -431,7 +431,7 @@ a:hover {
         </div>
 
         <!-- Education Section -->
-        <div class="section-wrapper right-layout">
+        <div class="section-wrapper left-layout">
           <section id="education" class="page__content section-content">
             <header class="page__header">
               <h1 class="page__title">Education</h1>
@@ -472,7 +472,7 @@ a:hover {
         </div>
 
         <!-- Publications Section -->
-        <div class="section-wrapper left-layout">
+        <div class="section-wrapper right-layout">
           <section id="publications" class="page__content section-content">
             <header class="page__header">
               <h1 class="page__title">Publications</h1>
@@ -530,7 +530,7 @@ a:hover {
 
         <!-- Teaching Section -->
         {% if site.teaching.size > 0 %}
-        <div class="section-wrapper right-layout">
+        <div class="section-wrapper left-layout">
           <section id="teaching" class="page__content section-content">
             <header class="page__header">
               <h1 class="page__title">Teaching</h1>
@@ -547,7 +547,7 @@ a:hover {
         {% endif %}
 
         <!-- CV Section -->
-        <div class="section-wrapper left-layout">
+        <div class="section-wrapper right-layout">
           <section id="cv" class="page__content cv-section section-content">
             <header class="page__header">
               <h1 class="page__title">CV</h1>
