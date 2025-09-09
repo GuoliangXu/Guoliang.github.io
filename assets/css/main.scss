@@ -53,17 +53,3 @@
   /* 对 CJK 文本更友好，可按需开启（英文不需要） */
   /* text-justify: inter-ideograph; */
 }
-
-/* Section spacing and content font size adjustments */
-section {
-  margin-bottom: 1rem !important;
-}
-
-/* Reduce content font size by one level */
-.page__content p,
-.page__content li,
-.archive__item-excerpt,
-.cv-container p,
-.cv-container li {
-  font-size: 0.75em !important; /* type-size-6 equivalent */
-}
